@@ -18,12 +18,14 @@
           class="input-name"
           name="input-name"
           placeholder="Enter name"
+          id="create-name"
         />
         <input
           type="text"
           class="input-surname"
           name="input-surname"
           placeholder="Enter surname"
+          id="create-surname"
         />
         <button class="global-container__create-btn">Create</button>
       </div>
@@ -39,6 +41,7 @@
           class="input-name"
           name="input-name"
           placeholder="Anything..."
+          id="search-name"
         />
         <h3 class="global-container__search-surname-headline">
           With surnames containing:
@@ -48,6 +51,7 @@
           class="input-surname"
           name="input-surname"
           placeholder="Anything..."
+          id="search-surname"
         />
         <button class="global-container__search-btn">Search</button>
       </div>
@@ -65,9 +69,19 @@
         <button class="edit-form__close-btn"></button>
         <h2 class="edit-form__headline">Edit information about user</h2>
         <h3 class="edit-form__user-name-headline">New name:</h3>
-        <input type="text" class="input-name" name="input-name" />
+        <input
+          type="text"
+          class="input-name"
+          name="input-name"
+          id="edit-name"
+        />
         <h3 class="edit-form__user-surname-headline">New surname:</h3>
-        <input type="text" class="input-surname" name="input-surname" />
+        <input
+          type="text"
+          class="input-surname"
+          name="input-surname"
+          id="edit-surname"
+        />
         <button class="edit-form__confirm-btn">Confirm</button>
       </form>
     </div>
