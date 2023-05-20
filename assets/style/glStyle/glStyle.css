@@ -1,3 +1,11 @@
+.hidden-element {
+  display: none !important;
+}
+
+.appeared-flex {
+  display: flex !important;
+}
+
 .global-container {
   min-height: 100vh;
   padding: 10px;
@@ -84,17 +92,23 @@
   transition: 0s;
   color: white;
 }
+.global-container__users-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 5px;
+}
+.global-container__users-wrapper .global-container__users-wrapper-headline {
+  margin-bottom: 5px;
+  font-size: 24px;
+  font-family: Verdana;
+}
 
 .users-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   row-gap: 5px;
-}
-.users-container__headline {
-  margin-bottom: 5px;
-  font-size: 24px;
-  font-family: Verdana;
 }
 .users-container__no-users-text {
   font-size: 18px;
@@ -107,4 +121,75 @@
   width: 100%;
   font-size: 18px;
   font-family: Verdana;
+}
+
+.edit-form-wrapper {
+  position: fixed;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.edit-form {
+  position: relative;
+  max-width: 320px;
+  width: 100%;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+  background-color: lightyellow;
+}
+.edit-form__close-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+  background-color: transparent;
+  background-image: url(../../images/cross.png);
+  background-size: cover;
+}
+.edit-form__headline {
+  max-width: 260px;
+  margin-bottom: 5px;
+  font-size: 28px;
+  font-family: Verdana;
+  text-align: center;
+}
+.edit-form__user-name-headline {
+  font-size: 18px;
+  font-family: Verdana;
+}
+.edit-form__user-surname-headline {
+  font-size: 18px;
+  font-family: Verdana;
+}
+.edit-form__confirm-btn {
+  padding: 5px 10px;
+  max-width: 300px;
+  width: 100%;
+  font-size: 18px;
+  font-family: Verdana;
+  border-radius: 5px;
+  background-color: gold;
+  border: none;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.edit-form__confirm-btn:hover {
+  transform: scale(1.05);
+}
+.edit-form__confirm-btn:active {
+  transition: 0s;
+  color: white;
 }/*# sourceMappingURL=glStyle.css.map */

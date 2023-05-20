@@ -51,10 +51,25 @@
         />
         <button class="global-container__search-btn">Search</button>
       </div>
-      <div class="users-container">
-        <h2 class="users-container__headline">All found users</h2>
-        <h3 class="users-container__no-users-text">No any users found...</h3>
+      <div class="global-container__users-wrapper">
+        <h2 class="global-container__users-wrapper-headline">
+          All found users
+        </h2>
+        <div class="users-container">
+          <h3 class="users-container__no-users-text">No any users found...</h3>
+        </div>
       </div>
+    </div>
+    <div class="edit-form-wrapper">
+      <form action="#" class="edit-form" name="edit-form">
+        <button class="edit-form__close-btn"></button>
+        <h2 class="edit-form__headline">Edit information about user</h2>
+        <h3 class="edit-form__user-name-headline">New name:</h3>
+        <input type="text" class="input-name" name="input-name" />
+        <h3 class="edit-form__user-surname-headline">New surname:</h3>
+        <input type="text" class="input-surname" name="input-surname" />
+        <button class="edit-form__confirm-btn">Confirm</button>
+      </form>
     </div>
     <script src="./assets/scripts/script.js"></script>
   </body>
