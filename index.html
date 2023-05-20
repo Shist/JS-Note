@@ -9,6 +9,53 @@
     <title>JS-Note</title>
   </head>
   <body>
+    <div class="global-container">
+      <h1 class="global-container__main-headline">List of users</h1>
+      <div class="global-container__block-create">
+        <h2 class="global-container__create-headline">Create new user</h2>
+        <input
+          type="text"
+          class="input-name"
+          name="input-name"
+          placeholder="Enter name"
+        />
+        <input
+          type="text"
+          class="input-surname"
+          name="input-surname"
+          placeholder="Enter surname"
+        />
+        <button class="global-container__create-btn">Create</button>
+      </div>
+      <div class="global-container__block-search">
+        <h2 class="global-container__search-headline">
+          Search for specific users
+        </h2>
+        <h3 class="global-container__search-name-headline">
+          With names containing:
+        </h3>
+        <input
+          type="text"
+          class="input-name"
+          name="input-name"
+          placeholder="Anything..."
+        />
+        <h3 class="global-container__search-surname-headline">
+          With surnames containing:
+        </h3>
+        <input
+          type="text"
+          class="input-surname"
+          name="input-surname"
+          placeholder="Anything..."
+        />
+        <button class="global-container__search-btn">Search</button>
+      </div>
+      <div class="users-container">
+        <h2 class="users-container__headline">All found users</h2>
+        <h3 class="users-container__no-users-text">No any users found...</h3>
+      </div>
+    </div>
     <script src="./scripts/script.js"></script>
   </body>
 </html>
