@@ -6,25 +6,27 @@
 .appeared-flex {
   display: flex !important;
 }
+body {
+  background-color: lightyellow;
+}
 .global-container {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
   min-height: 100vh;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 15px;
-  background-color: lightyellow;
+  text-align: center;
   &__main-headline {
     margin-bottom: 10px;
     font-size: 48px;
     font-family: Verdana;
   }
   &__block-create {
-    max-width: 300px;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     row-gap: 5px;
     .global-container__create-headline {
       margin-bottom: 5px;
@@ -33,8 +35,6 @@
     }
     .global-container__create-btn {
       padding: 5px 10px;
-      max-width: 300px;
-      width: 100%;
       font-size: 18px;
       font-family: Verdana;
       border-radius: 5px;
@@ -52,11 +52,8 @@
     }
   }
   &__block-search {
-    max-width: 300px;
-    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;
     row-gap: 5px;
     .global-container__search-headline {
       margin-bottom: 5px;
@@ -73,8 +70,6 @@
     }
     .global-container__search-btn {
       padding: 5px 10px;
-      max-width: 300px;
-      width: 100%;
       font-size: 18px;
       font-family: Verdana;
       border-radius: 5px;
@@ -94,7 +89,6 @@
   &__users-wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
     row-gap: 5px;
     .global-container__users-wrapper-headline {
       margin-bottom: 5px;
@@ -106,19 +100,98 @@
 .users-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 5px;
   &__no-users-text {
     font-size: 18px;
     font-family: Verdana;
   }
 }
+.user-card {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  background-color: khaki;
+  border-radius: 10px;
+  &__headline {
+    margin-bottom: 5px;
+    font-size: 24px;
+    font-family: Verdana;
+  }
+  &__name-headline {
+    text-align: start;
+    font-size: 18px;
+    font-family: Verdana;
+  }
+  &__name {
+    text-align: start;
+    font-size: 16px;
+    font-family: Verdana;
+  }
+  &__surname-headline {
+    text-align: start;
+    font-size: 18px;
+    font-family: Verdana;
+  }
+  &__surname {
+    text-align: start;
+    font-size: 16px;
+    font-family: Verdana;
+    &_last {
+      margin-bottom: 5px;
+    }
+  }
+  &__buttons-wrapper {
+    display: flex;
+    justify-content: space-around;
+    column-gap: 10px;
+    .user-card__edit-btn {
+      max-width: 130px;
+      width: 100%;
+      padding: 5px 10px;
+      font-size: 18px;
+      font-family: Verdana;
+      border-radius: 5px;
+      background-color: gold;
+      border: 1px solid black;
+      cursor: pointer;
+      transition: 0.2s;
+      &:hover {
+        transform: scale(1.05);
+      }
+      &:active {
+        transition: 0s;
+        color: white;
+      }
+    }
+    .user-card__delete-btn {
+      max-width: 130px;
+      width: 100%;
+      padding: 5px 10px;
+      font-size: 18px;
+      font-family: Verdana;
+      border-radius: 5px;
+      background-color: gold;
+      border: 1px solid black;
+      cursor: pointer;
+      transition: 0.2s;
+      &:hover {
+        transform: scale(1.05);
+      }
+      &:active {
+        transition: 0s;
+        color: white;
+      }
+    }
+  }
+}
 .input-name,
 .input-surname {
-  max-width: 300px;
-  width: 100%;
   font-size: 18px;
   font-family: Verdana;
+  &_last {
+    margin-bottom: 5px;
+  }
 }
 .edit-form-wrapper {
   position: fixed;
@@ -138,9 +211,9 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 10px;
   background-color: lightyellow;
+  text-align: center;
   &__close-btn {
     position: absolute;
     top: 0;
@@ -155,11 +228,11 @@
     background-size: cover;
   }
   &__headline {
+    margin: 0 auto;
     max-width: 260px;
     margin-bottom: 5px;
     font-size: 28px;
     font-family: Verdana;
-    text-align: center;
   }
   &__user-name-headline {
     font-size: 18px;
@@ -171,8 +244,6 @@
   }
   &__confirm-btn {
     padding: 5px 10px;
-    max-width: 300px;
-    width: 100%;
     font-size: 18px;
     font-family: Verdana;
     border-radius: 5px;

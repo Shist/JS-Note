@@ -6,14 +6,20 @@
   display: flex !important;
 }
 
+body {
+  background-color: lightyellow;
+}
+
 .global-container {
+  max-width: 320px;
+  width: 100%;
+  margin: 0 auto;
   min-height: 100vh;
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 15px;
-  background-color: lightyellow;
+  text-align: center;
 }
 .global-container__main-headline {
   margin-bottom: 10px;
@@ -21,11 +27,8 @@
   font-family: Verdana;
 }
 .global-container__block-create {
-  max-width: 300px;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 5px;
 }
 .global-container__block-create .global-container__create-headline {
@@ -35,8 +38,6 @@
 }
 .global-container__block-create .global-container__create-btn {
   padding: 5px 10px;
-  max-width: 300px;
-  width: 100%;
   font-size: 18px;
   font-family: Verdana;
   border-radius: 5px;
@@ -53,11 +54,8 @@
   color: white;
 }
 .global-container__block-search {
-  max-width: 300px;
-  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 5px;
 }
 .global-container__block-search .global-container__search-headline {
@@ -75,8 +73,6 @@
 }
 .global-container__block-search .global-container__search-btn {
   padding: 5px 10px;
-  max-width: 300px;
-  width: 100%;
   font-size: 18px;
   font-family: Verdana;
   border-radius: 5px;
@@ -95,7 +91,6 @@
 .global-container__users-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 5px;
 }
 .global-container__users-wrapper .global-container__users-wrapper-headline {
@@ -107,7 +102,6 @@
 .users-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 5px;
 }
 .users-container__no-users-text {
@@ -115,12 +109,95 @@
   font-family: Verdana;
 }
 
-.input-name,
-.input-surname {
-  max-width: 300px;
-  width: 100%;
+.user-card {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  background-color: khaki;
+  border-radius: 10px;
+}
+.user-card__headline {
+  margin-bottom: 5px;
+  font-size: 24px;
+  font-family: Verdana;
+}
+.user-card__name-headline {
+  text-align: start;
   font-size: 18px;
   font-family: Verdana;
+}
+.user-card__name {
+  text-align: start;
+  font-size: 16px;
+  font-family: Verdana;
+}
+.user-card__surname-headline {
+  text-align: start;
+  font-size: 18px;
+  font-family: Verdana;
+}
+.user-card__surname {
+  text-align: start;
+  font-size: 16px;
+  font-family: Verdana;
+}
+.user-card__surname_last {
+  margin-bottom: 5px;
+}
+.user-card__buttons-wrapper {
+  display: flex;
+  justify-content: space-around;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.user-card__buttons-wrapper .user-card__edit-btn {
+  max-width: 130px;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 18px;
+  font-family: Verdana;
+  border-radius: 5px;
+  background-color: gold;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.user-card__buttons-wrapper .user-card__edit-btn:hover {
+  transform: scale(1.05);
+}
+.user-card__buttons-wrapper .user-card__edit-btn:active {
+  transition: 0s;
+  color: white;
+}
+.user-card__buttons-wrapper .user-card__delete-btn {
+  max-width: 130px;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 18px;
+  font-family: Verdana;
+  border-radius: 5px;
+  background-color: gold;
+  border: 1px solid black;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.user-card__buttons-wrapper .user-card__delete-btn:hover {
+  transform: scale(1.05);
+}
+.user-card__buttons-wrapper .user-card__delete-btn:active {
+  transition: 0s;
+  color: white;
+}
+
+.input-name,
+.input-surname {
+  font-size: 18px;
+  font-family: Verdana;
+}
+.input-name_last,
+.input-surname_last {
+  margin-bottom: 5px;
 }
 
 .edit-form-wrapper {
@@ -142,9 +219,9 @@
   padding: 10px;
   display: flex;
   flex-direction: column;
-  align-items: center;
   row-gap: 10px;
   background-color: lightyellow;
+  text-align: center;
 }
 .edit-form__close-btn {
   position: absolute;
@@ -160,11 +237,11 @@
   background-size: cover;
 }
 .edit-form__headline {
+  margin: 0 auto;
   max-width: 260px;
   margin-bottom: 5px;
   font-size: 28px;
   font-family: Verdana;
-  text-align: center;
 }
 .edit-form__user-name-headline {
   font-size: 18px;
@@ -176,8 +253,6 @@
 }
 .edit-form__confirm-btn {
   padding: 5px 10px;
-  max-width: 300px;
-  width: 100%;
   font-size: 18px;
   font-family: Verdana;
   border-radius: 5px;
