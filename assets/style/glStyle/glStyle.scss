@@ -1,0 +1,108 @@
+.global-container {
+  min-height: 100vh;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 15px;
+  background-color: lightyellow;
+  &__main-headline {
+    margin-bottom: 10px;
+    font-size: 48px;
+    font-family: Verdana;
+  }
+  &__block-create {
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+    .global-container__create-headline {
+      margin-bottom: 5px;
+      font-size: 24px;
+      font-family: Verdana;
+    }
+    .global-container__create-btn {
+      padding: 5px 10px;
+      max-width: 300px;
+      width: 100%;
+      font-size: 18px;
+      font-family: Verdana;
+      border-radius: 5px;
+      background-color: gold;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      &:hover {
+        transform: scale(1.05);
+      }
+      &:active {
+        transition: 0s;
+        color: white;
+      }
+    }
+  }
+  &__block-search {
+    max-width: 300px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 5px;
+    .global-container__search-headline {
+      margin-bottom: 5px;
+      font-size: 24px;
+      font-family: Verdana;
+    }
+    .global-container__search-name-headline {
+      font-size: 18px;
+      font-family: Verdana;
+    }
+    .global-container__search-surname-headline {
+      font-size: 18px;
+      font-family: Verdana;
+    }
+    .global-container__search-btn {
+      padding: 5px 10px;
+      max-width: 300px;
+      width: 100%;
+      font-size: 18px;
+      font-family: Verdana;
+      border-radius: 5px;
+      background-color: gold;
+      border: none;
+      cursor: pointer;
+      transition: 0.2s;
+      &:hover {
+        transform: scale(1.05);
+      }
+      &:active {
+        transition: 0s;
+        color: white;
+      }
+    }
+  }
+}
+.users-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 5px;
+  &__headline {
+    margin-bottom: 5px;
+    font-size: 24px;
+    font-family: Verdana;
+  }
+  &__no-users-text {
+    font-size: 18px;
+    font-family: Verdana;
+  }
+}
+.input-name,
+.input-surname {
+  max-width: 300px;
+  width: 100%;
+  font-size: 18px;
+  font-family: Verdana;
+}
