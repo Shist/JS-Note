@@ -17,7 +17,6 @@ const searchInputSurname = document.querySelector("#search-surname");
 const searchBtn = document.querySelector(".global-container__search-btn");
 // Elements for editing
 const formContainer = document.querySelector(".edit-form-wrapper");
-const form = document.querySelector(".edit-form");
 const closeBtn = document.querySelector(".edit-form__close-btn");
 const editInputName = document.querySelector("#edit-name");
 const editInputSurname = document.querySelector("#edit-surname");
@@ -50,26 +49,18 @@ searchBtn.addEventListener("click", () => {
 // Event while clicking on something inside users' container
 usersContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("user-card__delete-btn")) {
-    const userIndexInArray = getUserIndexByUniqueId(usersArr, event.target.id);
-    usersArr.splice(userIndexInArray, 1);
-    usersUniqueIds.delete(+event.target.id);
-    searchInputName.value = "";
-    searchInputSurname.value = "";
+    deleteUserByUniqueId(event.target.id);
+    cleanSearchInputs();
     createListPage(usersArr);
   }
   if (event.target.classList.contains("user-card__edit-btn")) {
-    formContainer.classList.add("appeared-flex");
-    const userIndexInArray = getUserIndexByUniqueId(usersArr, event.target.id);
-    editInputName.value = usersArr[userIndexInArray].name;
-    editInputSurname.value = usersArr[userIndexInArray].surname;
-    confirmBtn.id = event.target.id;
+    prepareEditingModalWindow(event.target.id);
   }
 });
 // Event while clicking on button with cross at the top-right corner of editing form
 closeBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  formContainer.classList.remove("appeared-flex");
-  formContainer.classList.add("hidden-element");
+  hideEditingModalWindow();
 });
 confirmBtn.addEventListener("click", (event) => {
   event.preventDefault();
@@ -83,23 +74,55 @@ confirmBtn.addEventListener("click", (event) => {
     alert(`Error while editing Surname:\n${isSurnameWrong}`);
     return;
   }
-  const userIndexInArray = getUserIndexByUniqueId(usersArr, event.target.id);
-  usersArr[userIndexInArray].name = editInputName.value;
-  usersArr[userIndexInArray].surname = editInputSurname.value;
-  searchInputName.value = "";
-  searchInputSurname.value = "";
+  editUserByUniqueId(event.target.id);
+  cleanSearchInputs();
   createListPage(usersArr);
-  formContainer.classList.remove("appeared-flex");
-  formContainer.classList.add("hidden-element");
+  hideEditingModalWindow();
 });
 
 // Model
-// isUserDataWrong(str) => {...} - Checks if user's data invalid. If yes, returns error message. If no, returns false.
-function isUserDataWrong(str) {
-  if (!str.trim()) return "You can not enter an empty value!";
-  if (str.length > 25)
-    return "You can not enter the data with length > 25 symbols";
-  return false;
+// addUser() => {...} - Adds data to array
+function addUser() {
+  usersArr.push({
+    uniqueId: generateUniqueId(usersUniqueIds),
+    name: createInputName.value,
+    surname: createInputSurname.value,
+  });
+  cleanCreateInputs();
+  cleanSearchInputs();
+}
+// cleanCreateInputs() => {...} - Cleans input values of create-inputs
+function cleanCreateInputs() {
+  createInputName.value = "";
+  createInputSurname.value = "";
+}
+// cleanSearchInputs() => {...} - Cleans input values of search-inputs
+function cleanSearchInputs() {
+  searchInputName.value = "";
+  searchInputSurname.value = "";
+}
+// createListPage(arr) => {...} - loops through the array "arr" and renders the elements on the page
+function createListPage(arr) {
+  usersContainer.innerHTML = "";
+  if (arr.length > 0) {
+    arr.forEach((user) => {
+      renderUserCard(user);
+    });
+  } else {
+    usersContainer.innerHTML = `<h3 class="users-container__no-users-text">No any users found...</h3>`;
+  }
+}
+// deleteUserByUniqueId(uniqueId) => {...} - Deletes user with specific id "uniqueId" from the array and from the set
+function deleteUserByUniqueId(uniqueId) {
+  const userIndexInArray = getUserIndexByUniqueId(usersArr, uniqueId);
+  usersArr.splice(userIndexInArray, 1);
+  usersUniqueIds.delete(+uniqueId);
+}
+// deleteUserByUniqueId(uniqueId) => {...} - Edits user with specific id "uniqueId" in the array
+function editUserByUniqueId(uniqueId) {
+  const userIndexInArray = getUserIndexByUniqueId(usersArr, uniqueId);
+  usersArr[userIndexInArray].name = editInputName.value;
+  usersArr[userIndexInArray].surname = editInputSurname.value;
 }
 // generateUniqueId(set) => {...} - Generates unique identifier that is not yet in the set "set"
 function generateUniqueId(set) {
@@ -120,28 +143,25 @@ function getUserIndexByUniqueId(arr, neededId) {
   }
   return "Critical error! There are no elements with given specific unique identifier";
 }
-// addUser() => {...} - Adds data to array
-function addUser() {
-  usersArr.push({
-    uniqueId: generateUniqueId(usersUniqueIds),
-    name: createInputName.value,
-    surname: createInputSurname.value,
-  });
-  createInputName.value = "";
-  createInputSurname.value = "";
-  searchInputName.value = "";
-  searchInputSurname.value = "";
+// hideEditingModalWindow() => {...} - Hides modal window for editing user's data
+function hideEditingModalWindow() {
+  formContainer.classList.remove("appeared-flex");
+  formContainer.classList.add("hidden-element");
 }
-// createListPage(arr) => {...} - loops through the array "arr" and renders the elements on the page
-function createListPage(arr) {
-  usersContainer.innerHTML = "";
-  if (arr.length > 0) {
-    arr.forEach((user) => {
-      renderUserCard(user);
-    });
-  } else {
-    usersContainer.innerHTML = `<h3 class="users-container__no-users-text">No any users found...</h3>`;
-  }
+// isUserDataWrong(str) => {...} - Checks if user's data invalid. If yes, returns error message. If no, returns false.
+function isUserDataWrong(str) {
+  if (!str.trim()) return "You can not enter an empty value!";
+  if (str.length > 25)
+    return "You can not enter the data with length > 25 symbols";
+  return false;
+}
+// prepareEditingModalWindow(uniqueId) => {...} - prepares modal window for editing data of user with specific id "uniqueId"
+function prepareEditingModalWindow(uniqueId) {
+  const userIndexInArray = getUserIndexByUniqueId(usersArr, uniqueId);
+  editInputName.value = usersArr[userIndexInArray].name;
+  editInputSurname.value = usersArr[userIndexInArray].surname;
+  confirmBtn.id = uniqueId;
+  showEditingModalWindow();
 }
 // renderUserCard(user) => {...} - Adds to the page given information about user "user"
 function renderUserCard(user) {
@@ -159,4 +179,9 @@ function renderUserCard(user) {
         </div>
       </div>`
   );
+}
+// showEditingModalWindow() => {...} - Shows modal window for editing user's data
+function showEditingModalWindow() {
+  formContainer.classList.remove("hidden-element");
+  formContainer.classList.add("appeared-flex");
 }
