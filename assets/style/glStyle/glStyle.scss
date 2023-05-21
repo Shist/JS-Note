@@ -1,13 +1,8 @@
-// This class is needed to hide elements (by adding this class)
-.hidden-element {
-  display: none !important;
-}
-// This class is needed to make elements appear (by adding this class)
-.appeared-flex {
-  display: flex !important;
-}
+@import "./vars";
+@import "./template";
+
 body {
-  background-color: lightyellow;
+  background-color: $bg-color;
 }
 .global-container {
   max-width: 320px;
@@ -22,7 +17,7 @@ body {
   &__main-headline {
     margin-bottom: 10px;
     font-size: 48px;
-    font-family: Verdana;
+    font-family: $font;
   }
   &__block-create {
     display: flex;
@@ -31,24 +26,10 @@ body {
     .global-container__create-headline {
       margin-bottom: 5px;
       font-size: 24px;
-      font-family: Verdana;
+      font-family: $font;
     }
     .global-container__create-btn {
-      padding: 5px 10px;
-      font-size: 18px;
-      font-family: Verdana;
-      border-radius: 5px;
-      background-color: gold;
-      border: none;
-      cursor: pointer;
-      transition: 0.2s;
-      &:hover {
-        transform: scale(1.05);
-      }
-      &:active {
-        transition: 0s;
-        color: white;
-      }
+      @include default-btn;
     }
   }
   &__block-search {
@@ -58,32 +39,18 @@ body {
     .global-container__search-headline {
       margin-bottom: 5px;
       font-size: 24px;
-      font-family: Verdana;
+      font-family: $font;
     }
     .global-container__search-name-headline {
       font-size: 18px;
-      font-family: Verdana;
+      font-family: $font;
     }
     .global-container__search-surname-headline {
       font-size: 18px;
-      font-family: Verdana;
+      font-family: $font;
     }
     .global-container__search-btn {
-      padding: 5px 10px;
-      font-size: 18px;
-      font-family: Verdana;
-      border-radius: 5px;
-      background-color: gold;
-      border: none;
-      cursor: pointer;
-      transition: 0.2s;
-      &:hover {
-        transform: scale(1.05);
-      }
-      &:active {
-        transition: 0s;
-        color: white;
-      }
+      @include default-btn;
     }
   }
   &__users-wrapper {
@@ -93,7 +60,7 @@ body {
     .global-container__users-wrapper-headline {
       margin-bottom: 5px;
       font-size: 24px;
-      font-family: Verdana;
+      font-family: $font;
     }
   }
 }
@@ -103,7 +70,7 @@ body {
   row-gap: 5px;
   &__no-users-text {
     font-size: 18px;
-    font-family: Verdana;
+    font-family: $font;
   }
 }
 .user-card {
@@ -111,32 +78,32 @@ body {
   display: flex;
   flex-direction: column;
   row-gap: 5px;
-  background-color: khaki;
+  background-color: $user-card-bg-color;
   border-radius: 10px;
   &__headline {
     margin-bottom: 5px;
     font-size: 24px;
-    font-family: Verdana;
+    font-family: $font;
   }
   &__name-headline {
     text-align: start;
     font-size: 18px;
-    font-family: Verdana;
+    font-family: $font;
   }
   &__name {
     text-align: start;
     font-size: 16px;
-    font-family: Verdana;
+    font-family: $font;
   }
   &__surname-headline {
     text-align: start;
     font-size: 18px;
-    font-family: Verdana;
+    font-family: $font;
   }
   &__surname {
     text-align: start;
     font-size: 16px;
-    font-family: Verdana;
+    font-family: $font;
     &_last {
       margin-bottom: 5px;
     }
@@ -146,49 +113,17 @@ body {
     justify-content: space-around;
     column-gap: 10px;
     .user-card__edit-btn {
-      max-width: 130px;
-      width: 100%;
-      padding: 5px 10px;
-      font-size: 18px;
-      font-family: Verdana;
-      border-radius: 5px;
-      background-color: gold;
-      border: 1px solid black;
-      cursor: pointer;
-      transition: 0.2s;
-      &:hover {
-        transform: scale(1.05);
-      }
-      &:active {
-        transition: 0s;
-        color: white;
-      }
+      @include default-btn(130px, 1px solid black);
     }
     .user-card__delete-btn {
-      max-width: 130px;
-      width: 100%;
-      padding: 5px 10px;
-      font-size: 18px;
-      font-family: Verdana;
-      border-radius: 5px;
-      background-color: gold;
-      border: 1px solid black;
-      cursor: pointer;
-      transition: 0.2s;
-      &:hover {
-        transform: scale(1.05);
-      }
-      &:active {
-        transition: 0s;
-        color: white;
-      }
+      @include default-btn(130px, 1px solid black);
     }
   }
 }
 .input-name,
 .input-surname {
   font-size: 18px;
-  font-family: Verdana;
+  font-family: $font;
   &_last {
     margin-bottom: 5px;
   }
@@ -212,7 +147,7 @@ body {
   display: flex;
   flex-direction: column;
   row-gap: 10px;
-  background-color: lightyellow;
+  background-color: $bg-color;
   text-align: center;
   &__close-btn {
     position: absolute;
@@ -232,31 +167,17 @@ body {
     max-width: 260px;
     margin-bottom: 5px;
     font-size: 28px;
-    font-family: Verdana;
+    font-family: $font;
   }
   &__user-name-headline {
     font-size: 18px;
-    font-family: Verdana;
+    font-family: $font;
   }
   &__user-surname-headline {
     font-size: 18px;
-    font-family: Verdana;
+    font-family: $font;
   }
   &__confirm-btn {
-    padding: 5px 10px;
-    font-size: 18px;
-    font-family: Verdana;
-    border-radius: 5px;
-    background-color: gold;
-    border: none;
-    cursor: pointer;
-    transition: 0.2s;
-    &:hover {
-      transform: scale(1.05);
-    }
-    &:active {
-      transition: 0s;
-      color: white;
-    }
+    @include default-btn;
   }
 }

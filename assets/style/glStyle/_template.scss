@@ -1,0 +1,33 @@
+@import "./vars";
+
+// This class is needed to hide elements (by adding this class)
+.hidden-element {
+  display: none !important;
+}
+// This class is needed to make elements appear (by adding this class)
+.appeared-flex {
+  display: flex !important;
+}
+
+// Mixin for buttons, already uses some default settings
+// You don't need to give max-width if you don't need it (default value: none)
+// You don't need to give border if you don't need it (default value: none)
+@mixin default-btn($max-width: none, $border: none) {
+  max-width: $max-width;
+  width: 100%;
+  padding: 5px 10px;
+  font-size: 18px;
+  font-family: $font;
+  border-radius: 5px;
+  background-color: $btn-color;
+  border: $border;
+  cursor: pointer;
+  transition: 0.2s;
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:active {
+    transition: 0s;
+    color: white;
+  }
+}

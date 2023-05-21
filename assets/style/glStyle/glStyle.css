@@ -24,7 +24,7 @@ body {
 .global-container__main-headline {
   margin-bottom: 10px;
   font-size: 48px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .global-container__block-create {
   display: flex;
@@ -34,12 +34,14 @@ body {
 .global-container__block-create .global-container__create-headline {
   margin-bottom: 5px;
   font-size: 24px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .global-container__block-create .global-container__create-btn {
+  max-width: none;
+  width: 100%;
   padding: 5px 10px;
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
   border-radius: 5px;
   background-color: gold;
   border: none;
@@ -61,20 +63,22 @@ body {
 .global-container__block-search .global-container__search-headline {
   margin-bottom: 5px;
   font-size: 24px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .global-container__block-search .global-container__search-name-headline {
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .global-container__block-search .global-container__search-surname-headline {
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .global-container__block-search .global-container__search-btn {
+  max-width: none;
+  width: 100%;
   padding: 5px 10px;
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
   border-radius: 5px;
   background-color: gold;
   border: none;
@@ -96,7 +100,7 @@ body {
 .global-container__users-wrapper .global-container__users-wrapper-headline {
   margin-bottom: 5px;
   font-size: 24px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 
 .users-container {
@@ -106,7 +110,7 @@ body {
 }
 .users-container__no-users-text {
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 
 .user-card {
@@ -120,27 +124,27 @@ body {
 .user-card__headline {
   margin-bottom: 5px;
   font-size: 24px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .user-card__name-headline {
   text-align: start;
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .user-card__name {
   text-align: start;
   font-size: 16px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .user-card__surname-headline {
   text-align: start;
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .user-card__surname {
   text-align: start;
   font-size: 16px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .user-card__surname_last {
   margin-bottom: 5px;
@@ -156,7 +160,7 @@ body {
   width: 100%;
   padding: 5px 10px;
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
   border-radius: 5px;
   background-color: gold;
   border: 1px solid black;
@@ -175,7 +179,7 @@ body {
   width: 100%;
   padding: 5px 10px;
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
   border-radius: 5px;
   background-color: gold;
   border: 1px solid black;
@@ -193,7 +197,7 @@ body {
 .input-name,
 .input-surname {
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .input-name_last,
 .input-surname_last {
@@ -241,20 +245,22 @@ body {
   max-width: 260px;
   margin-bottom: 5px;
   font-size: 28px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .edit-form__user-name-headline {
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .edit-form__user-surname-headline {
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
 }
 .edit-form__confirm-btn {
+  max-width: none;
+  width: 100%;
   padding: 5px 10px;
   font-size: 18px;
-  font-family: Verdana;
+  font-family: "Verdana";
   border-radius: 5px;
   background-color: gold;
   border: none;
