@@ -38,13 +38,12 @@ createBtn.addEventListener("click", () => {
 });
 // Event while clicling on search button
 searchBtn.addEventListener("click", () => {
-  createListPage(
-    usersArr.filter(
-      (user) =>
-        user.name.includes(searchInputName.value) &&
-        user.surname.includes(searchInputSurname.value)
-    )
+  const filteredArr = usersArr.filter(
+    (user) =>
+      user.name.includes(searchInputName.value) &&
+      user.surname.includes(searchInputSurname.value)
   );
+  createListPage(filteredArr);
 });
 // Event while clicking on something inside users' container
 usersContainer.addEventListener("click", (event) => {
@@ -83,11 +82,12 @@ confirmBtn.addEventListener("click", (event) => {
 // Model
 // addUser() => {...} - Adds data to array
 function addUser() {
-  usersArr.push({
+  const newUser = {
     uniqueId: generateUniqueId(usersUniqueIds),
     name: createInputName.value,
     surname: createInputSurname.value,
-  });
+  };
+  usersArr.push(newUser);
   cleanCreateInputs();
   cleanSearchInputs();
 }
