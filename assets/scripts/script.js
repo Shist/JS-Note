@@ -10,6 +10,7 @@ const usersContainer = document.querySelector(".users-container");
 // Elements for creating
 const createInputName = document.querySelector("#create-name");
 const createInputSurname = document.querySelector("#create-surname");
+const createSelectUserState = document.querySelector("#select-user-state");
 const createBtn = document.querySelector(".global-container__create-btn");
 // Elements for searching
 const searchInputName = document.querySelector("#search-name");
@@ -20,6 +21,7 @@ const formContainer = document.querySelector(".edit-form-wrapper");
 const closeBtn = document.querySelector(".edit-form__close-btn");
 const editInputName = document.querySelector("#edit-name");
 const editInputSurname = document.querySelector("#edit-surname");
+const editSelectUserState = document.querySelector("#edit-user-state");
 const confirmBtn = document.querySelector(".edit-form__confirm-btn");
 // Event while clicling on create button
 createBtn.addEventListener("click", () => {
@@ -86,6 +88,7 @@ function addUser() {
     uniqueId: generateUniqueId(usersUniqueIds),
     name: createInputName.value,
     surname: createInputSurname.value,
+    state: createSelectUserState.value,
   };
   usersArr.push(newUser);
   cleanCreateInputs();
@@ -123,6 +126,7 @@ function editUserByUniqueId(uniqueId) {
   const userIndexInArray = getUserIndexByUniqueId(usersArr, uniqueId);
   usersArr[userIndexInArray].name = editInputName.value;
   usersArr[userIndexInArray].surname = editInputSurname.value;
+  usersArr[userIndexInArray].state = editSelectUserState.value;
 }
 // generateUniqueId(set) => {...} - Generates unique identifier that is not yet in the set "set"
 function generateUniqueId(set) {
@@ -160,6 +164,7 @@ function prepareEditingModalWindow(uniqueId) {
   const userIndexInArray = getUserIndexByUniqueId(usersArr, uniqueId);
   editInputName.value = usersArr[userIndexInArray].name;
   editInputSurname.value = usersArr[userIndexInArray].surname;
+  editSelectUserState.value = usersArr[userIndexInArray].state;
   confirmBtn.id = uniqueId;
   showEditingModalWindow();
 }
@@ -172,7 +177,9 @@ function renderUserCard(user) {
         <h4 class="user-card__name-headline">Name:</h4>
         <span class="user-card__name">${user.name}</span>
         <h4 class="user-card__surname-headline">Surname:</h4>
-        <span class="user-card__surname_last user-card__surname">${user.surname}</span>
+        <span class="user-card__surname user-card__surname">${user.surname}</span>
+        <h4 class="user-card__state-headline">State:</h4>
+        <span class="user-card__state_last user-card__state">${user.state}</span>
         <div class="user-card__buttons-wrapper">
           <button class="user-card__edit-btn" id="${user.uniqueId}">Edit user</button>
           <button class="user-card__delete-btn" id="${user.uniqueId}">Delete user</button>

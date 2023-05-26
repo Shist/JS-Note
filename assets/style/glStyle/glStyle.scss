@@ -104,6 +104,16 @@ body {
     text-align: start;
     font-size: 16px;
     font-family: $font;
+  }
+  &__state-headline {
+    text-align: start;
+    font-size: 18px;
+    font-family: $font;
+  }
+  &__state {
+    text-align: start;
+    font-size: 16px;
+    font-family: $font;
     &_last {
       margin-bottom: 5px;
     }
@@ -122,6 +132,13 @@ body {
 }
 .input-name,
 .input-surname {
+  font-size: 18px;
+  font-family: $font;
+  &_last {
+    margin-bottom: 5px;
+  }
+}
+.select-user-state {
   font-size: 18px;
   font-family: $font;
   &_last {
@@ -174,6 +191,10 @@ body {
     font-family: $font;
   }
   &__user-surname-headline {
+    font-size: 18px;
+    font-family: $font;
+  }
+  &__user-state-headline {
     font-size: 18px;
     font-family: $font;
   }

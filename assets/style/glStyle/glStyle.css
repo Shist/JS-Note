@@ -146,7 +146,17 @@ body {
   font-size: 16px;
   font-family: "Verdana";
 }
-.user-card__surname_last {
+.user-card__state-headline {
+  text-align: start;
+  font-size: 18px;
+  font-family: "Verdana";
+}
+.user-card__state {
+  text-align: start;
+  font-size: 16px;
+  font-family: "Verdana";
+}
+.user-card__state_last {
   margin-bottom: 5px;
 }
 .user-card__buttons-wrapper {
@@ -204,6 +214,14 @@ body {
   margin-bottom: 5px;
 }
 
+.select-user-state {
+  font-size: 18px;
+  font-family: "Verdana";
+}
+.select-user-state_last {
+  margin-bottom: 5px;
+}
+
 .edit-form-wrapper {
   position: fixed;
   min-width: 100vw;
@@ -252,6 +270,10 @@ body {
   font-family: "Verdana";
 }
 .edit-form__user-surname-headline {
+  font-size: 18px;
+  font-family: "Verdana";
+}
+.edit-form__user-state-headline {
   font-size: 18px;
   font-family: "Verdana";
 }

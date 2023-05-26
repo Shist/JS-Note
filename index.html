@@ -22,11 +22,20 @@
         />
         <input
           type="text"
-          class="input-surname_last input-surname"
+          class="input-surname"
           name="input-surname"
           placeholder="Enter surname"
           id="create-surname"
         />
+        <select
+          class="select-user-state_last select-user-state"
+          name="select-user-state"
+          id="select-user-state"
+        >
+          <option value="Active" selected="selected">Active</option>
+          <option value="Inactive">Inactive</option>
+          <option value="Archived">Archived</option>
+        </select>
         <button class="global-container__create-btn">Create</button>
       </div>
       <div class="global-container__block-search">
@@ -78,10 +87,20 @@
         <h3 class="edit-form__user-surname-headline">New surname:</h3>
         <input
           type="text"
-          class="input-surname_last input-surname"
+          class="input-surname"
           name="input-surname"
           id="edit-surname"
         />
+        <h3 class="edit-form__user-state-headline">New state:</h3>
+        <select
+          class="select-user-state_last select-user-state"
+          name="select-user-state"
+          id="edit-user-state"
+        >
+          <option value="Active" selected="selected">Active</option>
+          <option value="Inactive">Inactive</option>
+          <option value="Archived">Archived</option>
+        </select>
         <button class="edit-form__confirm-btn">Confirm</button>
       </form>
     </div>
