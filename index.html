@@ -60,11 +60,24 @@
         </h3>
         <input
           type="search"
-          class="input-surname_last input-surname"
+          class="input-surname"
           name="input-surname"
           placeholder="Anything..."
           id="search-surname"
         />
+        <h3 class="global-container__search-select-headline">
+          With chosen state:
+        </h3>
+        <select
+          class="select-user-state_last select-user-state"
+          name="select-user-state"
+          id="search-user-state"
+        >
+          <option value="All" selected="selected">All</option>
+          <option value="Active">Active</option>
+          <option value="Inactive">Inactive</option>
+          <option value="Archived">Archived</option>
+        </select>
         <button class="global-container__search-btn">Search</button>
       </div>
       <div class="global-container__users-wrapper">

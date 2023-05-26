@@ -54,6 +54,10 @@ body {
       font-size: 18px;
       font-family: $font;
     }
+    .global-container__search-select-headline {
+      font-size: 18px;
+      font-family: $font;
+    }
     .global-container__search-btn {
       @include default-btn;
     }

@@ -18,6 +18,7 @@ const createBtn = document.querySelector(".global-container__create-btn");
 // Elements for searching
 const searchInputName = document.querySelector("#search-name");
 const searchInputSurname = document.querySelector("#search-surname");
+const searchSelectState = document.querySelector("#search-user-state");
 const searchBtn = document.querySelector(".global-container__search-btn");
 // Elements for editing
 const formContainer = document.querySelector(".edit-form-wrapper");
@@ -48,11 +49,19 @@ createBtn.addEventListener("click", () => {
 });
 // Event while clicling on search button
 searchBtn.addEventListener("click", () => {
-  const filteredArr = usersArr.filter(
-    (user) =>
-      user.name.includes(searchInputName.value) &&
-      user.surname.includes(searchInputSurname.value)
-  );
+  const filteredArr = usersArr.filter((user) => {
+    if (
+      searchSelectState.value === "All" ||
+      user.state === searchSelectState.value
+    ) {
+      return (
+        user.name.includes(searchInputName.value) &&
+        user.surname.includes(searchInputSurname.value)
+      );
+    } else {
+      return false;
+    }
+  });
   createListPage(filteredArr);
 });
 // Event while clicking on something inside users' container
@@ -108,11 +117,13 @@ function addUser() {
 function cleanCreateInputs() {
   createInputName.value = "";
   createInputSurname.value = "";
+  createSelectUserState.value = "Active";
 }
 // cleanSearchInputs() => {...} - Cleans input values of search-inputs
 function cleanSearchInputs() {
   searchInputName.value = "";
   searchInputSurname.value = "";
+  searchSelectState.value = "All";
 }
 // createListPage(arr) => {...} - loops through the array "arr" and renders the elements on the page
 function createListPage(arr) {

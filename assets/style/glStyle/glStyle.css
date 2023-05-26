@@ -82,6 +82,10 @@ body {
   font-size: 18px;
   font-family: "Verdana";
 }
+.global-container__block-search .global-container__search-select-headline {
+  font-size: 18px;
+  font-family: "Verdana";
+}
 .global-container__block-search .global-container__search-btn {
   max-width: none;
   width: 100%;
