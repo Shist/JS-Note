@@ -19,6 +19,11 @@ body {
     font-size: 48px;
     font-family: $font;
   }
+  &__error-msg {
+    font-size: 18px;
+    font-family: $font;
+    color: red;
+  }
   &__block-create {
     display: flex;
     flex-direction: column;
@@ -185,6 +190,11 @@ body {
     margin-bottom: 5px;
     font-size: 28px;
     font-family: $font;
+  }
+  &__error-msg {
+    font-size: 18px;
+    font-family: $font;
+    color: red;
   }
   &__user-name-headline {
     font-size: 18px;

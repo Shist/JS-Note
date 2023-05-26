@@ -7,6 +7,9 @@ const usersUniqueIds = new Set();
 // Controller
 // Container with users
 const usersContainer = document.querySelector(".users-container");
+// Element for showing errors
+const errorMessage = document.querySelector(".global-container__error-msg");
+errorMessage.setAttribute("style", "white-space: pre-wrap;");
 // Elements for creating
 const createInputName = document.querySelector("#create-name");
 const createInputSurname = document.querySelector("#create-surname");
@@ -19,6 +22,8 @@ const searchBtn = document.querySelector(".global-container__search-btn");
 // Elements for editing
 const formContainer = document.querySelector(".edit-form-wrapper");
 const closeBtn = document.querySelector(".edit-form__close-btn");
+const editErrorMessage = document.querySelector(".edit-form__error-msg");
+editErrorMessage.setAttribute("style", "white-space: pre-wrap;");
 const editInputName = document.querySelector("#edit-name");
 const editInputSurname = document.querySelector("#edit-surname");
 const editSelectUserState = document.querySelector("#edit-user-state");
@@ -28,13 +33,16 @@ createBtn.addEventListener("click", () => {
   const isNameWrong = isUserDataWrong(createInputName.value);
   const isSurnameWrong = isUserDataWrong(createInputSurname.value);
   if (isNameWrong) {
-    alert(`Error while creating Name:\n${isNameWrong}`);
+    errorMessage.textContent = `Error while creating Name:\n${isNameWrong}`;
+    showErrorMessage();
     return;
   }
   if (isSurnameWrong) {
-    alert(`Error while creating Surname:\n${isSurnameWrong}`);
+    errorMessage.textContent = `Error while creating Surname:\n${isSurnameWrong}`;
+    showErrorMessage();
     return;
   }
+  hideErrorMessage();
   addUser();
   createListPage(usersArr);
 });
@@ -68,11 +76,13 @@ confirmBtn.addEventListener("click", (event) => {
   const isNameWrong = isUserDataWrong(editInputName.value);
   const isSurnameWrong = isUserDataWrong(editInputSurname.value);
   if (isNameWrong) {
-    alert(`Error while editing Name:\n${isNameWrong}`);
+    editErrorMessage.textContent = `Error while editing Name:\n${isNameWrong}`;
+    showEditErrorMessage();
     return;
   }
   if (isSurnameWrong) {
-    alert(`Error while editing Surname:\n${isSurnameWrong}`);
+    editErrorMessage.textContent = `Error while editing Surname:\n${isSurnameWrong}`;
+    showEditErrorMessage();
     return;
   }
   editUserByUniqueId(event.target.id);
@@ -147,10 +157,21 @@ function getUserIndexByUniqueId(arr, neededId) {
   }
   return "Critical error! There are no elements with given specific unique identifier";
 }
+// hideEditErrorMessage() => {...} - Hides error message on edit modal window
+function hideEditErrorMessage() {
+  editErrorMessage.classList.remove("appeared-block");
+  editErrorMessage.classList.add("hidden-element");
+}
 // hideEditingModalWindow() => {...} - Hides modal window for editing user's data
 function hideEditingModalWindow() {
+  hideEditErrorMessage();
   formContainer.classList.remove("appeared-flex");
   formContainer.classList.add("hidden-element");
+}
+// hideErrorMessage() => {...} - Hides error message on main page
+function hideErrorMessage() {
+  errorMessage.classList.remove("appeared-block");
+  errorMessage.classList.add("hidden-element");
 }
 // isUserDataWrong(str) => {...} - Checks if user's data invalid. If yes, returns error message. If no, returns false.
 function isUserDataWrong(str) {
@@ -187,8 +208,18 @@ function renderUserCard(user) {
       </div>`
   );
 }
+// showEditErrorMessage() => {...} - Shows error message on edit modal window
+function showEditErrorMessage() {
+  editErrorMessage.classList.remove("hidden-element");
+  editErrorMessage.classList.add("appeared-block");
+}
 // showEditingModalWindow() => {...} - Shows modal window for editing user's data
 function showEditingModalWindow() {
   formContainer.classList.remove("hidden-element");
   formContainer.classList.add("appeared-flex");
+}
+// showErrorMessage() => {...} - Shows error message on main page
+function showErrorMessage() {
+  errorMessage.classList.remove("hidden-element");
+  errorMessage.classList.add("appeared-block");
 }

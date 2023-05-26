@@ -8,6 +8,10 @@
 .appeared-flex {
   display: flex !important;
 }
+// This class is needed to make elements appear (by adding this class)
+.appeared-block {
+  display: block !important;
+}
 
 // Mixin for buttons, already uses some default settings
 // You don't need to give max-width if you don't need it (default value: none)

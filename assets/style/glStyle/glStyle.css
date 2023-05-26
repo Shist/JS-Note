@@ -6,6 +6,10 @@
   display: flex !important;
 }
 
+.appeared-block {
+  display: block !important;
+}
+
 body {
   background-color: lightyellow;
 }
@@ -25,6 +29,11 @@ body {
   margin-bottom: 10px;
   font-size: 48px;
   font-family: "Verdana";
+}
+.global-container__error-msg {
+  font-size: 18px;
+  font-family: "Verdana";
+  color: red;
 }
 .global-container__block-create {
   display: flex;
@@ -264,6 +273,11 @@ body {
   margin-bottom: 5px;
   font-size: 28px;
   font-family: "Verdana";
+}
+.edit-form__error-msg {
+  font-size: 18px;
+  font-family: "Verdana";
+  color: red;
 }
 .edit-form__user-name-headline {
   font-size: 18px;
