@@ -74,11 +74,11 @@ body {
   font-size: 24px;
   font-family: "Verdana";
 }
-.global-container__block-search .global-container__search-name-headline {
+.global-container__block-search .global-container__search-title-headline {
   font-size: 18px;
   font-family: "Verdana";
 }
-.global-container__block-search .global-container__search-surname-headline {
+.global-container__block-search .global-container__search-description-headline {
   font-size: 18px;
   font-family: "Verdana";
 }
@@ -105,28 +105,28 @@ body {
   transition: 0s;
   color: white;
 }
-.global-container__users-wrapper {
+.global-container__notes-wrapper {
   display: flex;
   flex-direction: column;
   row-gap: 5px;
 }
-.global-container__users-wrapper .global-container__users-wrapper-headline {
+.global-container__notes-wrapper .global-container__notes-wrapper-headline {
   margin-bottom: 5px;
   font-size: 24px;
   font-family: "Verdana";
 }
 
-.users-container {
+.notes-container {
   display: flex;
   flex-direction: column;
   row-gap: 5px;
 }
-.users-container__no-users-text {
+.notes-container__no-notes-text {
   font-size: 18px;
   font-family: "Verdana";
 }
 
-.user-card {
+.note-card {
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -134,51 +134,51 @@ body {
   background-color: khaki;
   border-radius: 10px;
 }
-.user-card__headline {
+.note-card__headline {
   margin-bottom: 5px;
   font-size: 24px;
   font-family: "Verdana";
 }
-.user-card__name-headline {
+.note-card__title-headline {
   text-align: start;
   font-size: 18px;
   font-family: "Verdana";
 }
-.user-card__name {
+.note-card__title {
   text-align: start;
   font-size: 16px;
   font-family: "Verdana";
 }
-.user-card__surname-headline {
+.note-card__description-headline {
   text-align: start;
   font-size: 18px;
   font-family: "Verdana";
 }
-.user-card__surname {
+.note-card__description {
   text-align: start;
   font-size: 16px;
   font-family: "Verdana";
 }
-.user-card__state-headline {
+.note-card__state-headline {
   text-align: start;
   font-size: 18px;
   font-family: "Verdana";
 }
-.user-card__state {
+.note-card__state {
   text-align: start;
   font-size: 16px;
   font-family: "Verdana";
 }
-.user-card__state_last {
+.note-card__state_last {
   margin-bottom: 5px;
 }
-.user-card__buttons-wrapper {
+.note-card__buttons-wrapper {
   display: flex;
   justify-content: space-around;
   -moz-column-gap: 10px;
        column-gap: 10px;
 }
-.user-card__buttons-wrapper .user-card__edit-btn {
+.note-card__buttons-wrapper .note-card__edit-btn {
   max-width: 130px;
   width: 100%;
   padding: 5px 10px;
@@ -190,14 +190,14 @@ body {
   cursor: pointer;
   transition: 0.2s;
 }
-.user-card__buttons-wrapper .user-card__edit-btn:hover {
+.note-card__buttons-wrapper .note-card__edit-btn:hover {
   transform: scale(1.05);
 }
-.user-card__buttons-wrapper .user-card__edit-btn:active {
+.note-card__buttons-wrapper .note-card__edit-btn:active {
   transition: 0s;
   color: white;
 }
-.user-card__buttons-wrapper .user-card__delete-btn {
+.note-card__buttons-wrapper .note-card__delete-btn {
   max-width: 130px;
   width: 100%;
   padding: 5px 10px;
@@ -209,29 +209,29 @@ body {
   cursor: pointer;
   transition: 0.2s;
 }
-.user-card__buttons-wrapper .user-card__delete-btn:hover {
+.note-card__buttons-wrapper .note-card__delete-btn:hover {
   transform: scale(1.05);
 }
-.user-card__buttons-wrapper .user-card__delete-btn:active {
+.note-card__buttons-wrapper .note-card__delete-btn:active {
   transition: 0s;
   color: white;
 }
 
-.input-name,
-.input-surname {
+.input-title,
+.input-description {
   font-size: 18px;
   font-family: "Verdana";
 }
-.input-name_last,
-.input-surname_last {
+.input-title_last,
+.input-description_last {
   margin-bottom: 5px;
 }
 
-.select-user-state {
+.select-note-state {
   font-size: 18px;
   font-family: "Verdana";
 }
-.select-user-state_last {
+.select-note-state_last {
   margin-bottom: 5px;
 }
 
@@ -283,15 +283,15 @@ body {
   font-family: "Verdana";
   color: red;
 }
-.edit-form__user-name-headline {
+.edit-form__note-title-headline {
   font-size: 18px;
   font-family: "Verdana";
 }
-.edit-form__user-surname-headline {
+.edit-form__note-description-headline {
   font-size: 18px;
   font-family: "Verdana";
 }
-.edit-form__user-state-headline {
+.edit-form__note-state-headline {
   font-size: 18px;
   font-family: "Verdana";
 }

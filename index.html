@@ -10,115 +10,115 @@
   </head>
   <body>
     <div class="global-container">
-      <h1 class="global-container__main-headline">List of users</h1>
+      <h1 class="global-container__main-headline">List of notes</h1>
       <h3 class="hidden-element global-container__error-msg">
         Here will be some error message...
       </h3>
       <div class="global-container__block-create">
-        <h2 class="global-container__create-headline">Create new user</h2>
+        <h2 class="global-container__create-headline">Create new note</h2>
         <input
           type="text"
-          class="input-name"
-          name="input-name"
-          placeholder="Enter name"
-          id="create-name"
+          class="input-title"
+          name="input-title"
+          placeholder="Enter title"
+          id="create-title"
         />
         <input
           type="text"
-          class="input-surname"
-          name="input-surname"
-          placeholder="Enter surname"
-          id="create-surname"
+          class="input-description"
+          name="input-description"
+          placeholder="Enter description"
+          id="create-description"
         />
         <select
-          class="select-user-state_last select-user-state"
-          name="select-user-state"
-          id="select-user-state"
+          class="select-note-state_last select-note-state"
+          name="select-note-state"
+          id="select-note-state"
         >
-          <option value="Active" selected="selected">Active</option>
-          <option value="Inactive">Inactive</option>
-          <option value="Archived">Archived</option>
+          <option value="InProgress" selected="selected">In progress</option>
+          <option value="Postponed">Postponed</option>
+          <option value="Completed">Completed</option>
         </select>
         <button class="global-container__create-btn">Create</button>
       </div>
       <div class="global-container__block-search">
         <h2 class="global-container__search-headline">
-          Search for specific users
+          Search for specific notes
         </h2>
-        <h3 class="global-container__search-name-headline">
-          With names containing:
+        <h3 class="global-container__search-title-headline">
+          With title containing:
         </h3>
         <input
           type="search"
-          class="input-name"
-          name="input-name"
+          class="input-title"
+          name="input-title"
           placeholder="Anything..."
-          id="search-name"
+          id="search-title"
         />
-        <h3 class="global-container__search-surname-headline">
-          With surnames containing:
+        <h3 class="global-container__search-description-headline">
+          With description containing:
         </h3>
         <input
           type="search"
-          class="input-surname"
-          name="input-surname"
+          class="input-description"
+          name="input-description"
           placeholder="Anything..."
-          id="search-surname"
+          id="search-description"
         />
         <h3 class="global-container__search-select-headline">
           With chosen state:
         </h3>
         <select
-          class="select-user-state_last select-user-state"
-          name="select-user-state"
-          id="search-user-state"
+          class="select-note-state_last select-note-state"
+          name="select-note-state"
+          id="search-note-state"
         >
           <option value="All" selected="selected">All</option>
-          <option value="Active">Active</option>
-          <option value="Inactive">Inactive</option>
-          <option value="Archived">Archived</option>
+          <option value="InProgress">In progress</option>
+          <option value="Postponed">Postponed</option>
+          <option value="Completed">Completed</option>
         </select>
         <button class="global-container__search-btn">Search</button>
       </div>
-      <div class="global-container__users-wrapper">
-        <h2 class="global-container__users-wrapper-headline">
-          All found users
+      <div class="global-container__notes-wrapper">
+        <h2 class="global-container__notes-wrapper-headline">
+          All found notes
         </h2>
-        <div class="users-container">
-          <h3 class="users-container__no-users-text">No any users found...</h3>
+        <div class="notes-container">
+          <h3 class="notes-container__no-notes-text">No any notes found...</h3>
         </div>
       </div>
     </div>
     <div class="hidden-element edit-form-wrapper">
       <form action="#" class="edit-form" name="edit-form">
         <button class="edit-form__close-btn"></button>
-        <h2 class="edit-form__headline">Edit information about user</h2>
+        <h2 class="edit-form__headline">Edit information about note</h2>
         <h3 class="hidden-element edit-form__error-msg">
           Here will be some error message...
         </h3>
-        <h3 class="edit-form__user-name-headline">New name:</h3>
+        <h3 class="edit-form__note-title-headline">New title:</h3>
         <input
           type="text"
-          class="input-name"
-          name="input-name"
-          id="edit-name"
+          class="input-title"
+          name="input-title"
+          id="edit-title"
         />
-        <h3 class="edit-form__user-surname-headline">New surname:</h3>
+        <h3 class="edit-form__note-description-headline">New description:</h3>
         <input
           type="text"
-          class="input-surname"
-          name="input-surname"
-          id="edit-surname"
+          class="input-description"
+          name="input-description"
+          id="edit-description"
         />
-        <h3 class="edit-form__user-state-headline">New state:</h3>
+        <h3 class="edit-form__note-state-headline">New state:</h3>
         <select
-          class="select-user-state_last select-user-state"
-          name="select-user-state"
-          id="edit-user-state"
+          class="select-note-state_last select-note-state"
+          name="select-note-state"
+          id="edit-note-state"
         >
-          <option value="Active" selected="selected">Active</option>
-          <option value="Inactive">Inactive</option>
-          <option value="Archived">Archived</option>
+          <option value="InProgress" selected="selected">In Progress</option>
+          <option value="Postponed">Postponed</option>
+          <option value="Completed">Completed</option>
         </select>
         <button class="edit-form__confirm-btn">Confirm</button>
       </form>

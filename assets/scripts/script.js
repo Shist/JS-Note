@@ -1,63 +1,63 @@
 "use strict";
 
 /// Store
-const usersArr = [];
-const usersUniqueIds = new Set();
+const notesArr = [];
+const notesUniqueIds = new Set();
 let currUniqueId = 0;
 
 // Controller
-// Container with users
-const usersContainer = document.querySelector(".users-container");
+// Container with notes
+const notesContainer = document.querySelector(".notes-container");
 // Element for showing errors
 const errorMessage = document.querySelector(".global-container__error-msg");
 errorMessage.setAttribute("style", "white-space: pre-wrap;");
 // Elements for creating
-const createInputName = document.querySelector("#create-name");
-const createInputSurname = document.querySelector("#create-surname");
-const createSelectUserState = document.querySelector("#select-user-state");
+const createInputTitle = document.querySelector("#create-title");
+const createInputDescription = document.querySelector("#create-description");
+const createSelectNoteState = document.querySelector("#select-note-state");
 const createBtn = document.querySelector(".global-container__create-btn");
 // Elements for searching
-const searchInputName = document.querySelector("#search-name");
-const searchInputSurname = document.querySelector("#search-surname");
-const searchSelectState = document.querySelector("#search-user-state");
+const searchInputTitle = document.querySelector("#search-title");
+const searchInputDescription = document.querySelector("#search-description");
+const searchSelectNoteState = document.querySelector("#search-note-state");
 const searchBtn = document.querySelector(".global-container__search-btn");
 // Elements for editing
 const formContainer = document.querySelector(".edit-form-wrapper");
 const closeBtn = document.querySelector(".edit-form__close-btn");
 const editErrorMessage = document.querySelector(".edit-form__error-msg");
 editErrorMessage.setAttribute("style", "white-space: pre-wrap;");
-const editInputName = document.querySelector("#edit-name");
-const editInputSurname = document.querySelector("#edit-surname");
-const editSelectUserState = document.querySelector("#edit-user-state");
+const editInputTitle = document.querySelector("#edit-title");
+const editInputDescription = document.querySelector("#edit-description");
+const editSelectNoteState = document.querySelector("#edit-note-state");
 const confirmBtn = document.querySelector(".edit-form__confirm-btn");
 // Event while clicling on create button
 createBtn.addEventListener("click", () => {
-  const isNameWrong = isUserDataWrong(createInputName.value);
-  const isSurnameWrong = isUserDataWrong(createInputSurname.value);
-  if (isNameWrong) {
-    errorMessage.textContent = `Error while creating Name:\n${isNameWrong}`;
+  const isTitleWrong = isUserDataWrong(createInputTitle.value);
+  const isDescriptionWrong = isUserDataWrong(createInputDescription.value);
+  if (isTitleWrong) {
+    errorMessage.textContent = `Error while creating Title:\n${isTitleWrong}`;
     showErrorMessage();
     return;
   }
-  if (isSurnameWrong) {
-    errorMessage.textContent = `Error while creating Surname:\n${isSurnameWrong}`;
+  if (isDescriptionWrong) {
+    errorMessage.textContent = `Error while creating Description:\n${isDescriptionWrong}`;
     showErrorMessage();
     return;
   }
   hideErrorMessage();
-  addUser();
-  createListPage(usersArr);
+  addNote();
+  createListPage(notesArr);
 });
 // Event while clicling on search button
 searchBtn.addEventListener("click", () => {
-  const filteredArr = usersArr.filter((user) => {
+  const filteredArr = notesArr.filter((note) => {
     if (
-      searchSelectState.value === "All" ||
-      user.state === searchSelectState.value
+      searchSelectNoteState.value === "All" ||
+      note.state === searchSelectNoteState.value
     ) {
       return (
-        user.name.includes(searchInputName.value) &&
-        user.surname.includes(searchInputSurname.value)
+        note.title.includes(searchInputTitle.value) &&
+        note.description.includes(searchInputDescription.value)
       );
     } else {
       return false;
@@ -65,14 +65,14 @@ searchBtn.addEventListener("click", () => {
   });
   createListPage(filteredArr);
 });
-// Event while clicking on something inside users' container
-usersContainer.addEventListener("click", (event) => {
-  if (event.target.classList.contains("user-card__delete-btn")) {
-    deleteUserByUniqueId(event.target.id);
+// Event while clicking on something inside notes container
+notesContainer.addEventListener("click", (event) => {
+  if (event.target.classList.contains("note-card__delete-btn")) {
+    deleteNoteByUniqueId(event.target.id);
     cleanSearchInputs();
-    createListPage(usersArr);
+    createListPage(notesArr);
   }
-  if (event.target.classList.contains("user-card__edit-btn")) {
+  if (event.target.classList.contains("note-card__edit-btn")) {
     prepareEditingModalWindow(event.target.id);
   }
 });
@@ -83,72 +83,72 @@ closeBtn.addEventListener("click", (event) => {
 });
 confirmBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  const isNameWrong = isUserDataWrong(editInputName.value);
-  const isSurnameWrong = isUserDataWrong(editInputSurname.value);
-  if (isNameWrong) {
-    editErrorMessage.textContent = `Error while editing Name:\n${isNameWrong}`;
+  const isTitleWrong = isUserDataWrong(editInputTitle.value);
+  const isDescriptionWrong = isUserDataWrong(editInputDescription.value);
+  if (isTitleWrong) {
+    editErrorMessage.textContent = `Error while editing Title:\n${isTitleWrong}`;
     showEditErrorMessage();
     return;
   }
-  if (isSurnameWrong) {
-    editErrorMessage.textContent = `Error while editing Surname:\n${isSurnameWrong}`;
+  if (isDescriptionWrong) {
+    editErrorMessage.textContent = `Error while editing Description:\n${isDescriptionWrong}`;
     showEditErrorMessage();
     return;
   }
-  editUserByUniqueId(event.target.id);
+  editNoteByUniqueId(event.target.id);
   cleanSearchInputs();
-  createListPage(usersArr);
+  createListPage(notesArr);
   hideEditingModalWindow();
 });
 
 // Model
-// addUser() => {...} - Adds data to array
-function addUser() {
-  const newUser = {
-    uniqueId: generateUniqueId(usersUniqueIds),
-    name: createInputName.value,
-    surname: createInputSurname.value,
-    state: createSelectUserState.value,
+// addNote() => {...} - Adds data to array
+function addNote() {
+  const newNote = {
+    uniqueId: generateUniqueId(notesUniqueIds),
+    title: createInputTitle.value,
+    description: createInputDescription.value,
+    state: createSelectNoteState.value,
   };
-  usersArr.push(newUser);
+  notesArr.push(newNote);
   cleanCreateInputs();
   cleanSearchInputs();
 }
 // cleanCreateInputs() => {...} - Cleans input values of create-inputs
 function cleanCreateInputs() {
-  createInputName.value = "";
-  createInputSurname.value = "";
-  createSelectUserState.value = "Active";
+  createInputTitle.value = "";
+  createInputDescription.value = "";
+  createSelectNoteState.value = "InProgress";
 }
 // cleanSearchInputs() => {...} - Cleans input values of search-inputs
 function cleanSearchInputs() {
-  searchInputName.value = "";
-  searchInputSurname.value = "";
-  searchSelectState.value = "All";
+  searchInputTitle.value = "";
+  searchInputDescription.value = "";
+  searchSelectNoteState.value = "All";
 }
 // createListPage(arr) => {...} - loops through the array "arr" and renders the elements on the page
 function createListPage(arr) {
-  usersContainer.innerHTML = "";
+  notesContainer.innerHTML = "";
   if (arr.length > 0) {
-    arr.forEach((user) => {
-      renderUserCard(user);
+    arr.forEach((note) => {
+      renderNoteCard(note);
     });
   } else {
-    usersContainer.innerHTML = `<h3 class="users-container__no-users-text">No any users found...</h3>`;
+    notesContainer.innerHTML = `<h3 class="notes-container__no-notes-text">No any notes found...</h3>`;
   }
 }
-// deleteUserByUniqueId(uniqueId) => {...} - Deletes user with specific id "uniqueId" from the array and from the set
-function deleteUserByUniqueId(uniqueId) {
-  const userIndexInArray = getUserIndexByUniqueId(usersArr, uniqueId);
-  usersArr.splice(userIndexInArray, 1);
-  usersUniqueIds.delete(+uniqueId);
+// deleteNoteByUniqueId(uniqueId) => {...} - Deletes note with specific id "uniqueId" from the array and from the set
+function deleteNoteByUniqueId(uniqueId) {
+  const noteIndexInArray = getNoteIndexByUniqueId(notesArr, uniqueId);
+  notesArr.splice(noteIndexInArray, 1);
+  notesUniqueIds.delete(+uniqueId);
 }
-// deleteUserByUniqueId(uniqueId) => {...} - Edits user with specific id "uniqueId" in the array
-function editUserByUniqueId(uniqueId) {
-  const userIndexInArray = getUserIndexByUniqueId(usersArr, uniqueId);
-  usersArr[userIndexInArray].name = editInputName.value;
-  usersArr[userIndexInArray].surname = editInputSurname.value;
-  usersArr[userIndexInArray].state = editSelectUserState.value;
+// deleteNoteByUniqueId(uniqueId) => {...} - Edits note with specific id "uniqueId" in the array
+function editNoteByUniqueId(uniqueId) {
+  const noteIndexInArray = getNoteIndexByUniqueId(notesArr, uniqueId);
+  notesArr[noteIndexInArray].title = editInputTitle.value;
+  notesArr[noteIndexInArray].description = editInputDescription.value;
+  notesArr[noteIndexInArray].state = editSelectNoteState.value;
 }
 // generateUniqueId(set) => {...} - Generates unique identifier that is not yet in the set "set"
 function generateUniqueId(set) {
@@ -158,8 +158,8 @@ function generateUniqueId(set) {
   }
   return "Critical error! There are no any unique identifiers left!";
 }
-// getUserIndexByUniqueId(arr, neededId) => {...} - Finds and returns index in the array "arr" of the object with specific uniqie id "neededId"
-function getUserIndexByUniqueId(arr, neededId) {
+// getNoteIndexByUniqueId(arr, neededId) => {...} - Finds and returns index in the array "arr" of the object with specific uniqie id "neededId"
+function getNoteIndexByUniqueId(arr, neededId) {
   for (let indexInArray in arr) {
     if (arr[indexInArray].uniqueId == neededId) return indexInArray;
   }
@@ -170,7 +170,7 @@ function hideEditErrorMessage() {
   editErrorMessage.classList.remove("appeared-block");
   editErrorMessage.classList.add("hidden-element");
 }
-// hideEditingModalWindow() => {...} - Hides modal window for editing user's data
+// hideEditingModalWindow() => {...} - Hides modal window for editing notes data
 function hideEditingModalWindow() {
   hideEditErrorMessage();
   formContainer.classList.remove("appeared-flex");
@@ -188,30 +188,30 @@ function isUserDataWrong(str) {
     return "You can not enter the data with length > 25 symbols";
   return false;
 }
-// prepareEditingModalWindow(uniqueId) => {...} - prepares modal window for editing data of user with specific id "uniqueId"
+// prepareEditingModalWindow(uniqueId) => {...} - prepares modal window for editing data of note with specific id "uniqueId"
 function prepareEditingModalWindow(uniqueId) {
-  const userIndexInArray = getUserIndexByUniqueId(usersArr, uniqueId);
-  editInputName.value = usersArr[userIndexInArray].name;
-  editInputSurname.value = usersArr[userIndexInArray].surname;
-  editSelectUserState.value = usersArr[userIndexInArray].state;
+  const noteIndexInArray = getNoteIndexByUniqueId(notesArr, uniqueId);
+  editInputTitle.value = notesArr[noteIndexInArray].title;
+  editInputDescription.value = notesArr[noteIndexInArray].description;
+  editSelectNoteState.value = notesArr[noteIndexInArray].state;
   confirmBtn.id = uniqueId;
   showEditingModalWindow();
 }
-// renderUserCard(user) => {...} - Adds to the page given information about user "user"
-function renderUserCard(user) {
-  usersContainer.insertAdjacentHTML(
+// renderNoteCard(note) => {...} - Adds to the page given information about note "note"
+function renderNoteCard(note) {
+  notesContainer.insertAdjacentHTML(
     "beforeend",
-    `<div class="user-card">
-        <h3 class="user-card__headline">User card №${user.uniqueId}</h3>
-        <h4 class="user-card__name-headline">Name:</h4>
-        <span class="user-card__name">${user.name}</span>
-        <h4 class="user-card__surname-headline">Surname:</h4>
-        <span class="user-card__surname user-card__surname">${user.surname}</span>
-        <h4 class="user-card__state-headline">State:</h4>
-        <span class="user-card__state_last user-card__state">${user.state}</span>
-        <div class="user-card__buttons-wrapper">
-          <button class="user-card__edit-btn" id="${user.uniqueId}">Edit user</button>
-          <button class="user-card__delete-btn" id="${user.uniqueId}">Delete user</button>
+    `<div class="note-card">
+        <h3 class="note-card__headline">Note card №${note.uniqueId}</h3>
+        <h4 class="note-card__title-headline">Title:</h4>
+        <span class="note-card__title">${note.title}</span>
+        <h4 class="note-card__description-headline">Description:</h4>
+        <span class="note-card__description">${note.description}</span>
+        <h4 class="note-card__state-headline">State:</h4>
+        <span class="note-card__state_last note-card__state">${note.state}</span>
+        <div class="note-card__buttons-wrapper">
+          <button class="note-card__edit-btn" id="${note.uniqueId}">Edit note</button>
+          <button class="note-card__delete-btn" id="${note.uniqueId}">Delete note</button>
         </div>
       </div>`
   );
@@ -221,7 +221,7 @@ function showEditErrorMessage() {
   editErrorMessage.classList.remove("hidden-element");
   editErrorMessage.classList.add("appeared-block");
 }
-// showEditingModalWindow() => {...} - Shows modal window for editing user's data
+// showEditingModalWindow() => {...} - Shows modal window for editing notes data
 function showEditingModalWindow() {
   formContainer.classList.remove("hidden-element");
   formContainer.classList.add("appeared-flex");

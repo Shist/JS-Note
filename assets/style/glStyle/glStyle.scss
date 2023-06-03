@@ -46,11 +46,11 @@ body {
       font-size: 24px;
       font-family: $font;
     }
-    .global-container__search-name-headline {
+    .global-container__search-title-headline {
       font-size: 18px;
       font-family: $font;
     }
-    .global-container__search-surname-headline {
+    .global-container__search-description-headline {
       font-size: 18px;
       font-family: $font;
     }
@@ -62,54 +62,54 @@ body {
       @include default-btn;
     }
   }
-  &__users-wrapper {
+  &__notes-wrapper {
     display: flex;
     flex-direction: column;
     row-gap: 5px;
-    .global-container__users-wrapper-headline {
+    .global-container__notes-wrapper-headline {
       margin-bottom: 5px;
       font-size: 24px;
       font-family: $font;
     }
   }
 }
-.users-container {
+.notes-container {
   display: flex;
   flex-direction: column;
   row-gap: 5px;
-  &__no-users-text {
+  &__no-notes-text {
     font-size: 18px;
     font-family: $font;
   }
 }
-.user-card {
+.note-card {
   padding: 10px;
   display: flex;
   flex-direction: column;
   row-gap: 5px;
-  background-color: $user-card-bg-color;
+  background-color: $note-card-bg-color;
   border-radius: 10px;
   &__headline {
     margin-bottom: 5px;
     font-size: 24px;
     font-family: $font;
   }
-  &__name-headline {
+  &__title-headline {
     text-align: start;
     font-size: 18px;
     font-family: $font;
   }
-  &__name {
+  &__title {
     text-align: start;
     font-size: 16px;
     font-family: $font;
   }
-  &__surname-headline {
+  &__description-headline {
     text-align: start;
     font-size: 18px;
     font-family: $font;
   }
-  &__surname {
+  &__description {
     text-align: start;
     font-size: 16px;
     font-family: $font;
@@ -131,23 +131,23 @@ body {
     display: flex;
     justify-content: space-around;
     column-gap: 10px;
-    .user-card__edit-btn {
+    .note-card__edit-btn {
       @include default-btn(130px, 1px solid black);
     }
-    .user-card__delete-btn {
+    .note-card__delete-btn {
       @include default-btn(130px, 1px solid black);
     }
   }
 }
-.input-name,
-.input-surname {
+.input-title,
+.input-description {
   font-size: 18px;
   font-family: $font;
   &_last {
     margin-bottom: 5px;
   }
 }
-.select-user-state {
+.select-note-state {
   font-size: 18px;
   font-family: $font;
   &_last {
@@ -200,15 +200,15 @@ body {
     font-family: $font;
     color: red;
   }
-  &__user-name-headline {
+  &__note-title-headline {
     font-size: 18px;
     font-family: $font;
   }
-  &__user-surname-headline {
+  &__note-description-headline {
     font-size: 18px;
     font-family: $font;
   }
-  &__user-state-headline {
+  &__note-state-headline {
     font-size: 18px;
     font-family: $font;
   }
