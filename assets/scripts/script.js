@@ -3,6 +3,7 @@
 /// Store
 const usersArr = [];
 const usersUniqueIds = new Set();
+let currUniqueId = 0;
 
 // Controller
 // Container with users
@@ -151,13 +152,9 @@ function editUserByUniqueId(uniqueId) {
 }
 // generateUniqueId(set) => {...} - Generates unique identifier that is not yet in the set "set"
 function generateUniqueId(set) {
-  for (let id = 1; id < Number.MAX_SAFE_INTEGER; id++) {
-    if (set.has(id)) {
-      continue;
-    } else {
-      set.add(id);
-      return id;
-    }
+  if (++currUniqueId < Number.MAX_SAFE_INTEGER) {
+    set.add(currUniqueId);
+    return currUniqueId;
   }
   return "Critical error! There are no any unique identifiers left!";
 }
