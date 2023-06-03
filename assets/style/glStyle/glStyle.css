@@ -177,6 +177,7 @@ body {
   text-align: start;
   font-size: 16px;
   font-family: "Verdana";
+  white-space: pre-wrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -236,13 +237,20 @@ body {
   color: white;
 }
 
-.input-title,
-.input-description {
+.input-title {
   font-size: 18px;
   font-family: "Verdana";
 }
-.input-title_last,
-.input-description_last {
+.input-title_last {
+  margin-bottom: 5px;
+}
+
+.text-area-description {
+  font-size: 18px;
+  font-family: "Verdana";
+  resize: none;
+}
+.text-area-description_last {
   margin-bottom: 5px;
 }
 
@@ -298,6 +306,7 @@ body {
   font-family: "Verdana";
 }
 .edit-form__error-msg {
+  white-space: pre-wrap;
   font-size: 18px;
   font-family: "Verdana";
   color: red;

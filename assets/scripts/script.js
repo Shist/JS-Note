@@ -25,7 +25,6 @@ const searchBtn = document.querySelector(".global-container__search-btn");
 const formContainer = document.querySelector(".edit-form-wrapper");
 const closeBtn = document.querySelector(".edit-form__close-btn");
 const editErrorMessage = document.querySelector(".edit-form__error-msg");
-editErrorMessage.setAttribute("style", "white-space: pre-wrap;");
 const editInputTitle = document.querySelector("#edit-title");
 const editInputDescription = document.querySelector("#edit-description");
 const editSelectNoteState = document.querySelector("#edit-note-state");
@@ -186,14 +185,16 @@ function hideErrorMessage() {
 // isDescriptionDataWrong(str) => {...} - Checks if user's description invalid. If yes, returns error message. If no, returns false.
 function isDescriptionDataWrong(str) {
   if (str.length > 128)
-    return "You can not enter the title with length > 128 symbols";
+    return "You can not enter the description with more than 128 symbols";
+  if (str.split(/\r\n|\r|\n/).length > 7)
+    return "You can not enter the description with more than 7 lines";
   return false;
 }
 // isTitleDataWrong(str) => {...} - Checks if user's title invalid. If yes, returns error message. If no, returns false.
 function isTitleDataWrong(str) {
   if (!str.trim()) return "You can not enter an empty title!";
   if (str.length > 32)
-    return "You can not enter the title with length > 32 symbols";
+    return "You can not enter the title with length more than 32 symbols";
   return false;
 }
 // prepareEditingModalWindow(uniqueId) => {...} - prepares modal window for editing data of note with specific id "uniqueId"

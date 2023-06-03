@@ -25,13 +25,14 @@
               placeholder="Enter title"
               id="create-title"
             />
-            <input
+            <textarea
               type="text"
-              class="input-description"
-              name="input-description"
-              placeholder="Enter description"
+              class="text-area-description"
+              name="text-area-description"
+              placeholder="Enter description (optional)"
               id="create-description"
-            />
+              rows="3"
+            ></textarea>
             <select
               class="select-note-state_last select-note-state"
               name="select-note-state"
@@ -62,13 +63,14 @@
             <h3 class="global-container__search-description-headline">
               With description containing:
             </h3>
-            <input
+            <textarea
               type="search"
-              class="input-description"
-              name="input-description"
+              class="text-area-description"
+              name="text-area-description"
               placeholder="Anything..."
               id="search-description"
-            />
+              rows="2"
+            ></textarea>
             <h3 class="global-container__search-select-headline">
               With chosen state:
             </h3>
@@ -112,12 +114,14 @@
           id="edit-title"
         />
         <h3 class="edit-form__note-description-headline">New description:</h3>
-        <input
+        <textarea
           type="text"
-          class="input-description"
-          name="input-description"
+          class="text-area-description"
+          name="text-area-description"
+          placeholder="Enter description (optional)"
           id="edit-description"
-        />
+          rows="3"
+        ></textarea>
         <h3 class="edit-form__note-state-headline">New state:</h3>
         <select
           class="select-note-state_last select-note-state"
