@@ -32,8 +32,10 @@ const editSelectNoteState = document.querySelector("#edit-note-state");
 const confirmBtn = document.querySelector(".edit-form__confirm-btn");
 // Event while clicling on create button
 createBtn.addEventListener("click", () => {
-  const isTitleWrong = isUserDataWrong(createInputTitle.value);
-  const isDescriptionWrong = isUserDataWrong(createInputDescription.value);
+  const isTitleWrong = isTitleDataWrong(createInputTitle.value);
+  const isDescriptionWrong = isDescriptionDataWrong(
+    createInputDescription.value
+  );
   if (isTitleWrong) {
     errorMessage.textContent = `Error while creating Title:\n${isTitleWrong}`;
     showErrorMessage();
@@ -83,8 +85,8 @@ closeBtn.addEventListener("click", (event) => {
 });
 confirmBtn.addEventListener("click", (event) => {
   event.preventDefault();
-  const isTitleWrong = isUserDataWrong(editInputTitle.value);
-  const isDescriptionWrong = isUserDataWrong(editInputDescription.value);
+  const isTitleWrong = isTitleDataWrong(editInputTitle.value);
+  const isDescriptionWrong = isDescriptionDataWrong(editInputDescription.value);
   if (isTitleWrong) {
     editErrorMessage.textContent = `Error while editing Title:\n${isTitleWrong}`;
     showEditErrorMessage();
@@ -181,11 +183,17 @@ function hideErrorMessage() {
   errorMessage.classList.remove("appeared-block");
   errorMessage.classList.add("hidden-element");
 }
-// isUserDataWrong(str) => {...} - Checks if user's data invalid. If yes, returns error message. If no, returns false.
-function isUserDataWrong(str) {
-  if (!str.trim()) return "You can not enter an empty value!";
-  if (str.length > 25)
-    return "You can not enter the data with length > 25 symbols";
+// isDescriptionDataWrong(str) => {...} - Checks if user's description invalid. If yes, returns error message. If no, returns false.
+function isDescriptionDataWrong(str) {
+  if (str.length > 128)
+    return "You can not enter the title with length > 128 symbols";
+  return false;
+}
+// isTitleDataWrong(str) => {...} - Checks if user's title invalid. If yes, returns error message. If no, returns false.
+function isTitleDataWrong(str) {
+  if (!str.trim()) return "You can not enter an empty title!";
+  if (str.length > 32)
+    return "You can not enter the title with length > 32 symbols";
   return false;
 }
 // prepareEditingModalWindow(uniqueId) => {...} - prepares modal window for editing data of note with specific id "uniqueId"
@@ -202,16 +210,21 @@ function renderNoteCard(note) {
   notesContainer.insertAdjacentHTML(
     "beforeend",
     `<div class="note-card">
-        <h3 class="note-card__headline">Note card №${note.uniqueId}</h3>
-        <h4 class="note-card__title-headline">Title:</h4>
-        <span class="note-card__title">${note.title}</span>
+        <h3 class="note-card__title">${note.title}</h3>
         <h4 class="note-card__description-headline">Description:</h4>
-        <span class="note-card__description">${note.description}</span>
-        <h4 class="note-card__state-headline">State:</h4>
-        <span class="note-card__state_last note-card__state">${note.state}</span>
+        <p class="note-card__description_last note-card__description">${
+          note.description ? note.description : "Description is empty..."
+        }</p>
+        <h4 class="note-card__state_last note-card__state">State: ${
+          note.state
+        }</h4>
         <div class="note-card__buttons-wrapper">
-          <button class="note-card__edit-btn" id="${note.uniqueId}">Edit note</button>
-          <button class="note-card__delete-btn" id="${note.uniqueId}">Delete note</button>
+          <button class="note-card__edit-btn" id="${
+            note.uniqueId
+          }">Edit note</button>
+          <button class="note-card__delete-btn" id="${
+            note.uniqueId
+          }">Delete note</button>
         </div>
       </div>`
   );

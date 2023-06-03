@@ -84,7 +84,7 @@ body {
       flex-direction: column;
       row-gap: 20px;
       .global-container__notes-wrapper-headline {
-        font-size: 24px;
+        font-size: 36px;
         font-family: $font;
       }
     }
@@ -110,39 +110,33 @@ body {
   row-gap: 10px;
   background-color: $note-card-bg-color;
   border-radius: 10px;
-  &__headline {
-    margin-bottom: 5px;
-    font-size: 24px;
-    font-family: $font;
-  }
-  &__title-headline {
-    text-align: start;
-    font-size: 18px;
-    font-family: $font;
-  }
   &__title {
-    text-align: start;
-    font-size: 16px;
+    padding: 5px;
+    font-size: 26px;
     font-family: $font;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   &__description-headline {
     text-align: start;
-    font-size: 18px;
+    font-size: 20px;
     font-family: $font;
   }
   &__description {
+    padding: 2px;
+    flex-grow: 1;
     text-align: start;
     font-size: 16px;
     font-family: $font;
-  }
-  &__state-headline {
-    text-align: start;
-    font-size: 18px;
-    font-family: $font;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    &_last {
+      margin-bottom: 5px;
+    }
   }
   &__state {
     text-align: start;
-    font-size: 16px;
+    font-size: 20px;
     font-family: $font;
     &_last {
       margin-bottom: 5px;
