@@ -118,7 +118,7 @@ function addNote() {
 function cleanCreateInputs() {
   createInputTitle.value = "";
   createInputDescription.value = "";
-  createSelectNoteState.value = "InProgress";
+  createSelectNoteState.value = "In progress";
 }
 // cleanSearchInputs() => {...} - Cleans input values of search-inputs
 function cleanSearchInputs() {

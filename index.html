@@ -11,81 +11,89 @@
   <body>
     <div class="global-container">
       <h1 class="global-container__main-headline">List of notes</h1>
-      <h3 class="hidden-element global-container__error-msg">
-        Here will be some error message...
-      </h3>
-      <div class="global-container__block-create">
-        <h2 class="global-container__create-headline">Create new note</h2>
-        <input
-          type="text"
-          class="input-title"
-          name="input-title"
-          placeholder="Enter title"
-          id="create-title"
-        />
-        <input
-          type="text"
-          class="input-description"
-          name="input-description"
-          placeholder="Enter description"
-          id="create-description"
-        />
-        <select
-          class="select-note-state_last select-note-state"
-          name="select-note-state"
-          id="select-note-state"
-        >
-          <option value="InProgress" selected="selected">In progress</option>
-          <option value="Postponed">Postponed</option>
-          <option value="Completed">Completed</option>
-        </select>
-        <button class="global-container__create-btn">Create</button>
-      </div>
-      <div class="global-container__block-search">
-        <h2 class="global-container__search-headline">
-          Search for specific notes
-        </h2>
-        <h3 class="global-container__search-title-headline">
-          With title containing:
-        </h3>
-        <input
-          type="search"
-          class="input-title"
-          name="input-title"
-          placeholder="Anything..."
-          id="search-title"
-        />
-        <h3 class="global-container__search-description-headline">
-          With description containing:
-        </h3>
-        <input
-          type="search"
-          class="input-description"
-          name="input-description"
-          placeholder="Anything..."
-          id="search-description"
-        />
-        <h3 class="global-container__search-select-headline">
-          With chosen state:
-        </h3>
-        <select
-          class="select-note-state_last select-note-state"
-          name="select-note-state"
-          id="search-note-state"
-        >
-          <option value="All" selected="selected">All</option>
-          <option value="InProgress">In progress</option>
-          <option value="Postponed">Postponed</option>
-          <option value="Completed">Completed</option>
-        </select>
-        <button class="global-container__search-btn">Search</button>
-      </div>
-      <div class="global-container__notes-wrapper">
-        <h2 class="global-container__notes-wrapper-headline">
-          All found notes
-        </h2>
-        <div class="notes-container">
-          <h3 class="notes-container__no-notes-text">No any notes found...</h3>
+      <div class="global-container__main-content-wrapper">
+        <div class="global-container__controllers-wrapper">
+          <h3 class="hidden-element global-container__error-msg">
+            Here will be some error message...
+          </h3>
+          <div class="global-container__block-create">
+            <h2 class="global-container__create-headline">Create new note</h2>
+            <input
+              type="text"
+              class="input-title"
+              name="input-title"
+              placeholder="Enter title"
+              id="create-title"
+            />
+            <input
+              type="text"
+              class="input-description"
+              name="input-description"
+              placeholder="Enter description"
+              id="create-description"
+            />
+            <select
+              class="select-note-state_last select-note-state"
+              name="select-note-state"
+              id="select-note-state"
+            >
+              <option value="In progress" selected="selected">
+                In progress
+              </option>
+              <option value="Postponed">Postponed</option>
+              <option value="Completed">Completed</option>
+            </select>
+            <button class="global-container__create-btn">Create</button>
+          </div>
+          <div class="global-container__block-search">
+            <h2 class="global-container__search-headline">
+              Search for specific notes
+            </h2>
+            <h3 class="global-container__search-title-headline">
+              With title containing:
+            </h3>
+            <input
+              type="search"
+              class="input-title"
+              name="input-title"
+              placeholder="Anything..."
+              id="search-title"
+            />
+            <h3 class="global-container__search-description-headline">
+              With description containing:
+            </h3>
+            <input
+              type="search"
+              class="input-description"
+              name="input-description"
+              placeholder="Anything..."
+              id="search-description"
+            />
+            <h3 class="global-container__search-select-headline">
+              With chosen state:
+            </h3>
+            <select
+              class="select-note-state_last select-note-state"
+              name="select-note-state"
+              id="search-note-state"
+            >
+              <option value="All" selected="selected">All</option>
+              <option value="In progress">In progress</option>
+              <option value="Postponed">Postponed</option>
+              <option value="Completed">Completed</option>
+            </select>
+            <button class="global-container__search-btn">Search</button>
+          </div>
+        </div>
+        <div class="global-container__notes-wrapper">
+          <h2 class="global-container__notes-wrapper-headline">
+            All found notes
+          </h2>
+          <div class="notes-container">
+            <h3 class="notes-container__no-notes-text">
+              No any notes found...
+            </h3>
+          </div>
         </div>
       </div>
     </div>
@@ -116,7 +124,7 @@
           name="select-note-state"
           id="edit-note-state"
         >
-          <option value="InProgress" selected="selected">In Progress</option>
+          <option value="In progress" selected="selected">In progress</option>
           <option value="Postponed">Postponed</option>
           <option value="Completed">Completed</option>
         </select>
