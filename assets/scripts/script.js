@@ -23,6 +23,8 @@ const searchInputTitle = document.querySelector("#search-title");
 const searchInputDescription = document.querySelector("#search-description");
 const searchSelectNoteState = document.querySelector("#search-state");
 const searchBtn = document.querySelector(".global-container__search-btn");
+// Elements for sorting
+const selectSortOption = document.querySelector("#select-sort-option");
 // Elements for editing
 const formContainer = document.querySelector(".edit-form-wrapper");
 const closeBtn = document.querySelector(".edit-form__close-btn");
@@ -32,8 +34,6 @@ const editInputDescription = document.querySelector("#edit-description");
 const editSelectNoteState = document.querySelector("#edit-state");
 const editInputDeadline = document.querySelector("#edit-deadline");
 const confirmBtn = document.querySelector(".edit-form__confirm-btn");
-// Elements for sorting
-const selectSortOption = document.querySelector("#select-sort-option");
 // Event while clicling on create button
 createBtn.addEventListener("click", () => {
   const isTitleWrong = isTitleDataWrong(createInputTitle.value);
@@ -133,6 +133,7 @@ function cleanSearchInputs() {
   searchInputTitle.value = "";
   searchInputDescription.value = "";
   searchSelectNoteState.value = "All";
+  selectSortOption.value = "Deadline";
 }
 // createListPage(arr) => {...} - loops through the array "arr" and renders the elements on the page
 function createListPage(arr) {
