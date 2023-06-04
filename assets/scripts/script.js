@@ -52,17 +52,17 @@ createBtn.addEventListener("click", () => {
   }
   hideErrorMessage();
   addNote();
-  createListPage(notesArr);
+  updateNotesList(notesArr);
 });
 // Event while clicling on search button
 searchBtn.addEventListener("click", () => {
-  createListPage(notesArr);
+  updateNotesList(notesArr);
 });
 // Event while clicking on something inside notes container
 notesContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("note-card__delete-btn")) {
     deleteNoteByUniqueId(event.target.id);
-    createListPage(notesArr);
+    updateNotesList(notesArr);
   }
   if (event.target.classList.contains("note-card__edit-btn")) {
     prepareEditingModalWindow(event.target.id);
@@ -88,7 +88,7 @@ confirmBtn.addEventListener("click", (event) => {
     return;
   }
   editNoteByUniqueId(event.target.id);
-  createListPage(notesArr);
+  updateNotesList(notesArr);
   hideEditingModalWindow();
 });
 
@@ -112,8 +112,8 @@ function cleanCreateInputs() {
   createSelectNoteState.value = "In progress";
   createInputDeadline.value = new Date().toISOString().split("T")[0];
 }
-// createListPage(arr) => {...} - loops through the array "arr" and renders the elements on the page
-function createListPage(arr) {
+// updateNotesList(arr) => {...} - loops through the array "arr" and renders the elements on the page
+function updateNotesList(arr) {
   const filteredArr = arr.filter((note) => {
     if (
       searchSelectNoteState.value === "All" ||
