@@ -81,6 +81,10 @@ body {
           font-size: 18px;
           font-family: $font;
         }
+        .global-container__sort-select-headline {
+          font-size: 18px;
+          font-family: $font;
+        }
         .global-container__search-btn {
           @include default-btn;
         }
@@ -187,6 +191,13 @@ body {
   }
 }
 .select-note-state {
+  font-size: 18px;
+  font-family: $font;
+  &_last {
+    margin-bottom: 5px;
+  }
+}
+.select-sort-option {
   font-size: 18px;
   font-family: $font;
   &_last {

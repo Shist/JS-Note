@@ -115,6 +115,10 @@ body {
   font-size: 18px;
   font-family: "Verdana";
 }
+.global-container__main-content-wrapper .global-container__controllers-wrapper .global-container__block-search .global-container__sort-select-headline {
+  font-size: 18px;
+  font-family: "Verdana";
+}
 .global-container__main-content-wrapper .global-container__controllers-wrapper .global-container__block-search .global-container__search-btn {
   max-width: none;
   width: 100%;
@@ -275,6 +279,14 @@ body {
   font-family: "Verdana";
 }
 .select-note-state_last {
+  margin-bottom: 5px;
+}
+
+.select-sort-option {
+  font-size: 18px;
+  font-family: "Verdana";
+}
+.select-sort-option_last {
   margin-bottom: 5px;
 }
 

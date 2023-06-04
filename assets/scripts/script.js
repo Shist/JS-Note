@@ -32,6 +32,8 @@ const editInputDescription = document.querySelector("#edit-description");
 const editSelectNoteState = document.querySelector("#edit-state");
 const editInputDeadline = document.querySelector("#edit-deadline");
 const confirmBtn = document.querySelector(".edit-form__confirm-btn");
+// Elements for sorting
+const selectSortOption = document.querySelector("#select-sort-option");
 // Event while clicling on create button
 createBtn.addEventListener("click", () => {
   const isTitleWrong = isTitleDataWrong(createInputTitle.value);
@@ -135,6 +137,7 @@ function cleanSearchInputs() {
 // createListPage(arr) => {...} - loops through the array "arr" and renders the elements on the page
 function createListPage(arr) {
   notesContainer.innerHTML = "";
+  sortNotesArr(arr, selectSortOption.value);
   if (arr.length > 0) {
     arr.forEach((note) => {
       renderNoteCard(note);
@@ -258,4 +261,41 @@ function showEditingModalWindow() {
 function showErrorMessage() {
   errorMessage.classList.remove("hidden-element");
   errorMessage.classList.add("appeared-block");
+}
+// sortNotesArr(notesArr, sortOption) => {...} - Sorts array "notesArr" by option "sortOption"
+function sortNotesArr(notesArr, sortOption) {
+  switch (sortOption) {
+    case "Deadline":
+      notesArr.sort((first, second) => {
+        return new Date(first.deadline) - new Date(second.deadline);
+      });
+      return notesArr;
+    case "State":
+      notesArr.sort((first, second) => {
+        return first.state > second.state
+          ? 1
+          : second.state > first.state
+          ? -1
+          : 0;
+      });
+      return notesArr;
+    case "Title":
+      notesArr.sort((first, second) => {
+        return first.title > second.title
+          ? 1
+          : second.title > first.title
+          ? -1
+          : 0;
+      });
+      return notesArr;
+    case "Description":
+      notesArr.sort((first, second) => {
+        return first.description > second.description
+          ? 1
+          : second.description > first.description
+          ? -1
+          : 0;
+      });
+      return notesArr;
+  }
 }
