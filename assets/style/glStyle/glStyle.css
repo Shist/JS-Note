@@ -119,7 +119,7 @@ body {
   font-size: 18px;
   font-family: "Verdana";
 }
-.global-container__main-content-wrapper .global-container__controllers-wrapper .global-container__block-search .global-container__search-btn {
+.global-container__main-content-wrapper .global-container__controllers-wrapper .global-container__block-search .global-container__refresh-btn {
   max-width: none;
   width: 100%;
   padding: 5px 10px;
@@ -131,10 +131,10 @@ body {
   cursor: pointer;
   transition: 0.2s;
 }
-.global-container__main-content-wrapper .global-container__controllers-wrapper .global-container__block-search .global-container__search-btn:hover {
+.global-container__main-content-wrapper .global-container__controllers-wrapper .global-container__block-search .global-container__refresh-btn:hover {
   transform: scale(1.05);
 }
-.global-container__main-content-wrapper .global-container__controllers-wrapper .global-container__block-search .global-container__search-btn:active {
+.global-container__main-content-wrapper .global-container__controllers-wrapper .global-container__block-search .global-container__refresh-btn:active {
   transition: 0s;
   color: white;
 }

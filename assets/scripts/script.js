@@ -22,7 +22,7 @@ const createBtn = document.querySelector(".global-container__create-btn");
 const searchInputTitle = document.querySelector("#search-title");
 const searchInputDescription = document.querySelector("#search-description");
 const searchSelectNoteState = document.querySelector("#search-state");
-const searchBtn = document.querySelector(".global-container__search-btn");
+const searchBtn = document.querySelector(".global-container__refresh-btn");
 // Elements for sorting
 const selectSortOption = document.querySelector("#select-sort-option");
 // Elements for editing
@@ -56,26 +56,12 @@ createBtn.addEventListener("click", () => {
 });
 // Event while clicling on search button
 searchBtn.addEventListener("click", () => {
-  const filteredArr = notesArr.filter((note) => {
-    if (
-      searchSelectNoteState.value === "All" ||
-      note.state === searchSelectNoteState.value
-    ) {
-      return (
-        note.title.includes(searchInputTitle.value) &&
-        note.description.includes(searchInputDescription.value)
-      );
-    } else {
-      return false;
-    }
-  });
-  createListPage(filteredArr);
+  createListPage(notesArr);
 });
 // Event while clicking on something inside notes container
 notesContainer.addEventListener("click", (event) => {
   if (event.target.classList.contains("note-card__delete-btn")) {
     deleteNoteByUniqueId(event.target.id);
-    cleanSearchInputs();
     createListPage(notesArr);
   }
   if (event.target.classList.contains("note-card__edit-btn")) {
@@ -102,7 +88,6 @@ confirmBtn.addEventListener("click", (event) => {
     return;
   }
   editNoteByUniqueId(event.target.id);
-  cleanSearchInputs();
   createListPage(notesArr);
   hideEditingModalWindow();
 });
@@ -119,7 +104,6 @@ function addNote() {
   };
   notesArr.push(newNote);
   cleanCreateInputs();
-  cleanSearchInputs();
 }
 // cleanCreateInputs() => {...} - Cleans input values of create-inputs
 function cleanCreateInputs() {
@@ -128,23 +112,29 @@ function cleanCreateInputs() {
   createSelectNoteState.value = "In progress";
   createInputDeadline.value = new Date().toISOString().split("T")[0];
 }
-// cleanSearchInputs() => {...} - Cleans input values of search-inputs
-function cleanSearchInputs() {
-  searchInputTitle.value = "";
-  searchInputDescription.value = "";
-  searchSelectNoteState.value = "All";
-  selectSortOption.value = "Deadline";
-}
 // createListPage(arr) => {...} - loops through the array "arr" and renders the elements on the page
 function createListPage(arr) {
+  const filteredArr = arr.filter((note) => {
+    if (
+      searchSelectNoteState.value === "All" ||
+      note.state === searchSelectNoteState.value
+    ) {
+      return (
+        note.title.includes(searchInputTitle.value) &&
+        note.description.includes(searchInputDescription.value)
+      );
+    } else {
+      return false;
+    }
+  });
   notesContainer.innerHTML = "";
-  sortNotesArr(arr, selectSortOption.value);
-  if (arr.length > 0) {
-    arr.forEach((note) => {
+  sortNotesArr(filteredArr, selectSortOption.value);
+  if (filteredArr.length > 0) {
+    filteredArr.forEach((note) => {
       renderNoteCard(note);
     });
   } else {
-    notesContainer.innerHTML = `<h3 class="notes-container__no-notes-text">No any notes found...</h3>`;
+    notesContainer.innerHTML = `<h3 class="notes-container__no-notes-text">No notes were found matching the given parameters...</h3>`;
   }
 }
 // deleteNoteByUniqueId(uniqueId) => {...} - Deletes note with specific id "uniqueId" from the array and from the set
