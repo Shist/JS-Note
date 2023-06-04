@@ -66,6 +66,14 @@ body {
   font-size: 24px;
   font-family: "Verdana";
 }
+.global-container__main-content-wrapper .global-container__controllers-wrapper .global-container__block-create .global-container__select-note-state-headline {
+  font-size: 18px;
+  font-family: "Verdana";
+}
+.global-container__main-content-wrapper .global-container__controllers-wrapper .global-container__block-create .global-container__note-deadline-headline {
+  font-size: 18px;
+  font-family: "Verdana";
+}
 .global-container__main-content-wrapper .global-container__controllers-wrapper .global-container__block-create .global-container__create-btn {
   max-width: none;
   width: 100%;
@@ -192,6 +200,14 @@ body {
 .note-card__state_last {
   margin-bottom: 5px;
 }
+.note-card__deadline {
+  text-align: start;
+  font-size: 20px;
+  font-family: "Verdana";
+}
+.note-card__deadline_last {
+  margin-bottom: 5px;
+}
 .note-card__buttons-wrapper {
   display: flex;
   justify-content: space-around;
@@ -262,6 +278,14 @@ body {
   margin-bottom: 5px;
 }
 
+.input-deadline {
+  font-size: 18px;
+  font-family: "Verdana";
+}
+.input-deadline_last {
+  margin-bottom: 5px;
+}
+
 .edit-form-wrapper {
   position: fixed;
   min-width: 100vw;
@@ -320,6 +344,10 @@ body {
   font-family: "Verdana";
 }
 .edit-form__note-state-headline {
+  font-size: 18px;
+  font-family: "Verdana";
+}
+.edit-form__note-deadline-headline {
   font-size: 18px;
   font-family: "Verdana";
 }

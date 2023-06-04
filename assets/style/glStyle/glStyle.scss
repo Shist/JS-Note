@@ -48,6 +48,14 @@ body {
           font-size: 24px;
           font-family: $font;
         }
+        .global-container__select-note-state-headline {
+          font-size: 18px;
+          font-family: $font;
+        }
+        .global-container__note-deadline-headline {
+          font-size: 18px;
+          font-family: $font;
+        }
         .global-container__create-btn {
           @include default-btn;
         }
@@ -143,6 +151,14 @@ body {
       margin-bottom: 5px;
     }
   }
+  &__deadline {
+    text-align: start;
+    font-size: 20px;
+    font-family: $font;
+    &_last {
+      margin-bottom: 5px;
+    }
+  }
   &__buttons-wrapper {
     display: flex;
     justify-content: space-around;
@@ -171,6 +187,13 @@ body {
   }
 }
 .select-note-state {
+  font-size: 18px;
+  font-family: $font;
+  &_last {
+    margin-bottom: 5px;
+  }
+}
+.input-deadline {
   font-size: 18px;
   font-family: $font;
   &_last {
@@ -233,6 +256,10 @@ body {
     font-family: $font;
   }
   &__note-state-headline {
+    font-size: 18px;
+    font-family: $font;
+  }
+  &__note-deadline-headline {
     font-size: 18px;
     font-family: $font;
   }

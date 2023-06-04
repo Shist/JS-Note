@@ -14,12 +14,14 @@ errorMessage.setAttribute("style", "white-space: pre-wrap;");
 // Elements for creating
 const createInputTitle = document.querySelector("#create-title");
 const createInputDescription = document.querySelector("#create-description");
-const createSelectNoteState = document.querySelector("#select-note-state");
+const createSelectNoteState = document.querySelector("#create-state");
+const createInputDeadline = document.querySelector("#create-deadline");
+createInputDeadline.value = new Date().toISOString().split("T")[0];
 const createBtn = document.querySelector(".global-container__create-btn");
 // Elements for searching
 const searchInputTitle = document.querySelector("#search-title");
 const searchInputDescription = document.querySelector("#search-description");
-const searchSelectNoteState = document.querySelector("#search-note-state");
+const searchSelectNoteState = document.querySelector("#search-state");
 const searchBtn = document.querySelector(".global-container__search-btn");
 // Elements for editing
 const formContainer = document.querySelector(".edit-form-wrapper");
@@ -27,7 +29,8 @@ const closeBtn = document.querySelector(".edit-form__close-btn");
 const editErrorMessage = document.querySelector(".edit-form__error-msg");
 const editInputTitle = document.querySelector("#edit-title");
 const editInputDescription = document.querySelector("#edit-description");
-const editSelectNoteState = document.querySelector("#edit-note-state");
+const editSelectNoteState = document.querySelector("#edit-state");
+const editInputDeadline = document.querySelector("#edit-deadline");
 const confirmBtn = document.querySelector(".edit-form__confirm-btn");
 // Event while clicling on create button
 createBtn.addEventListener("click", () => {
@@ -110,6 +113,7 @@ function addNote() {
     title: createInputTitle.value,
     description: createInputDescription.value,
     state: createSelectNoteState.value,
+    deadline: createInputDeadline.value,
   };
   notesArr.push(newNote);
   cleanCreateInputs();
@@ -120,6 +124,7 @@ function cleanCreateInputs() {
   createInputTitle.value = "";
   createInputDescription.value = "";
   createSelectNoteState.value = "In progress";
+  createInputDeadline.value = new Date().toISOString().split("T")[0];
 }
 // cleanSearchInputs() => {...} - Cleans input values of search-inputs
 function cleanSearchInputs() {
@@ -150,6 +155,7 @@ function editNoteByUniqueId(uniqueId) {
   notesArr[noteIndexInArray].title = editInputTitle.value;
   notesArr[noteIndexInArray].description = editInputDescription.value;
   notesArr[noteIndexInArray].state = editSelectNoteState.value;
+  notesArr[noteIndexInArray].deadline = editInputDeadline.value;
 }
 // generateUniqueId(set) => {...} - Generates unique identifier that is not yet in the set "set"
 function generateUniqueId(set) {
@@ -203,8 +209,13 @@ function prepareEditingModalWindow(uniqueId) {
   editInputTitle.value = notesArr[noteIndexInArray].title;
   editInputDescription.value = notesArr[noteIndexInArray].description;
   editSelectNoteState.value = notesArr[noteIndexInArray].state;
+  editInputDeadline.value = notesArr[noteIndexInArray].deadline;
   confirmBtn.id = uniqueId;
   showEditingModalWindow();
+}
+// reformatDate(date => {...} - Reformates date from YYYY-MM-DD to DD.MM.YYYY
+function reformatDate(date) {
+  return date.split("-").reverse().join(".");
 }
 // renderNoteCard(note) => {...} - Adds to the page given information about note "note"
 function renderNoteCard(note) {
@@ -219,6 +230,9 @@ function renderNoteCard(note) {
         <h4 class="note-card__state_last note-card__state">State: ${
           note.state
         }</h4>
+        <h4 class="note-card__deadline_last note-card__deadline">Deadline: ${reformatDate(
+          note.deadline
+        )}</h4>
         <div class="note-card__buttons-wrapper">
           <button class="note-card__edit-btn" id="${
             note.uniqueId
