@@ -73,6 +73,7 @@ closeBtn.addEventListener("click", (event) => {
   event.preventDefault();
   hideEditingModalWindow();
 });
+// Event while clicking on confirm button in order to sumbit changes in editing form
 confirmBtn.addEventListener("click", (event) => {
   event.preventDefault();
   const isTitleWrong = isTitleDataWrong(editInputTitle.value);
@@ -90,6 +91,20 @@ confirmBtn.addEventListener("click", (event) => {
   editNoteByUniqueId(event.target.id);
   updateNotesList(notesArr);
   hideEditingModalWindow();
+});
+// Event while clicking on dark space around edit form
+formContainer.addEventListener("click", (event) => {
+  if (event.target === formContainer) {
+    hideEditingModalWindow();
+  }
+});
+document.addEventListener("keydown", (event) => {
+  if (
+    event.code === "Escape" &&
+    formContainer.classList.contains("appeared-flex")
+  ) {
+    hideEditingModalWindow();
+  }
 });
 
 // Model
