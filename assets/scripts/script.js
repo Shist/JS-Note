@@ -163,20 +163,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const noteIndexInArray = getNoteIndexByUniqueId(notesArr, uniqueId);
     notesArr.splice(noteIndexInArray, 1);
     notesUniqueIds.delete(+uniqueId);
-    localStorage.removeItem(uniqueId);
+    localStorage.removeItem(uniqueId.toString());
     localStorage.setItem("uniqueIdsArray", JSON.stringify([...notesUniqueIds]));
   }
   // deleteNoteByUniqueId(uniqueId) => {...} - Edits note with specific id "uniqueId" in the array
   function editNoteByUniqueId(uniqueId) {
     const noteIndexInArray = getNoteIndexByUniqueId(notesArr, uniqueId);
-    notesArr[noteIndexInArray].title = editInputTitle.value;
-    notesArr[noteIndexInArray].description = editInputDescription.value;
-    notesArr[noteIndexInArray].state = editSelectNoteState.value;
-    notesArr[noteIndexInArray].deadline = editInputDeadline.value;
-    localStorage.setItem(
-      uniqueId.toString(),
-      JSON.stringify(notesArr[noteIndexInArray])
-    );
+    const targetNote = notesArr[noteIndexInArray];
+    targetNote.title = editInputTitle.value;
+    targetNote.description = editInputDescription.value;
+    targetNote.state = editSelectNoteState.value;
+    targetNote.deadline = editInputDeadline.value;
+    localStorage.setItem(uniqueId.toString(), JSON.stringify(targetNote));
   }
   // generateUniqueId(set) => {...} - Generates unique identifier that is not yet in the set "set"
   function generateUniqueId(set) {
@@ -233,17 +231,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const notesUniqueIdsArrayFromLocal = JSON.parse(
       localStorage.getItem("uniqueIdsArray")
     );
-    if (notesUniqueIdsArrayFromLocal) {
+    if (notesUniqueIdsArrayFromLocal && notesUniqueIdsArrayFromLocal.length) {
       notesUniqueIds = new Set(notesUniqueIdsArrayFromLocal);
+      notesUniqueIds.forEach((uniqueId) => {
+        const noteDataFromLocal = JSON.parse(
+          localStorage.getItem(uniqueId.toString())
+        );
+        if (noteDataFromLocal) {
+          notesArr.push(noteDataFromLocal);
+        }
+      });
     }
-    notesUniqueIds.forEach((uniqueId) => {
-      const noteDataFromLocal = JSON.parse(
-        localStorage.getItem(uniqueId.toString())
-      );
-      if (noteDataFromLocal) {
-        notesArr.push(noteDataFromLocal);
-      }
-    });
     updateNotesList(notesArr);
   }
   // prepareEditingModalWindow(uniqueId) => {...} - prepares modal window for editing data of note with specific id "uniqueId"
