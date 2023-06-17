@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Shist/JS-Note/issues"
   },
-  "homepage": "https://github.com/Shist/JS-Note#readme"
+  "homepage": "https://github.com/Shist/JS-Note#readme",
+  "devDependencies": {
+    "parcel": "^2.9.2"
+  }
 }
