@@ -5,6 +5,10 @@
 /.pnp
 .pnp.js
 
+# parcel
+/.parcel-cache
+/dist
+
 # testing
 /coverage
 
