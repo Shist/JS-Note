@@ -1,6 +1,6 @@
 {
   "name": "js-note",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "This is web-page where you can create, read, update, delete and search some items in the list.",
   "main": "index.js",
   "scripts": {
