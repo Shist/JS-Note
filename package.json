@@ -1,0 +1,19 @@
+{
+  "name": "js-note",
+  "version": "3.0.0",
+  "description": "This is web-page where you can create, read, update, delete and search some items in the list.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shist/JS-Note.git"
+  },
+  "author": "Shist",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shist/JS-Note/issues"
+  },
+  "homepage": "https://github.com/Shist/JS-Note#readme"
+}
