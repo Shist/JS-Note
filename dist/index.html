@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.7a82110c.css">
+    <link rel="stylesheet" href="/index.bf292d04.css">
+    <title>JS-Note</title>
+  </head>
+  <body>
+    <div class="global-container">
+      <h1 class="global-container__main-headline">List of notes</h1>
+      <div class="global-container__main-content-wrapper">
+        <div class="global-container__controllers-wrapper">
+          <h3 class="hidden-element global-container__error-msg">
+            Here will be some error message...
+          </h3>
+          <div class="global-container__block-create">
+            <h2 class="global-container__create-headline">Create new note</h2>
+            <input type="text" class="input-title" name="input-title" placeholder="Enter note title" id="create-title">
+            <textarea type="text" class="text-area-description_last text-area-description" name="text-area-description" placeholder="Enter note description (optional)" id="create-description" rows="3"></textarea>
+            <h3 class="global-container__select-note-state-headline">
+              Select note state:
+            </h3>
+            <select class="select-note-state_last select-note-state" name="select-note-state" id="create-state">
+              <option value="In progress" selected="selected">
+                In progress
+              </option>
+              <option value="Postponed">Postponed</option>
+              <option value="Completed">Completed</option>
+            </select>
+            <h3 class="global-container__note-deadline-headline">
+              Select note deadline:
+            </h3>
+            <input type="date" class="input-deadline_last input-deadline" name="input-deadline" id="create-deadline">
+            <button class="global-container__create-btn">Create</button>
+          </div>
+          <div class="global-container__block-search">
+            <h2 class="global-container__search-headline">
+              Add notes parameters
+            </h2>
+            <h3 class="global-container__search-title-headline">
+              With title containing:
+            </h3>
+            <input type="search" class="input-title_last input-title" name="input-title" placeholder="Anything..." id="search-title">
+            <h3 class="global-container__search-description-headline">
+              With description containing:
+            </h3>
+            <textarea type="search" class="text-area-description_last text-area-description" name="text-area-description" placeholder="Anything..." id="search-description" rows="2"></textarea>
+            <h3 class="global-container__search-select-headline">
+              With chosen state:
+            </h3>
+            <select class="select-note-state_last select-note-state" name="select-note-state" id="search-state">
+              <option value="All" selected="selected">All</option>
+              <option value="In progress">In progress</option>
+              <option value="Postponed">Postponed</option>
+              <option value="Completed">Completed</option>
+            </select>
+            <h3 class="global-container__sort-select-headline">Sorted by:</h3>
+            <select class="select-sort-option_last select-sort-option" name="select-sort-option" id="select-sort-option">
+              <option value="Deadline" selected="selected">Deadline</option>
+              <option value="State">State</option>
+              <option value="Title">Title</option>
+              <option value="Description">Description</option>
+            </select>
+            <button class="global-container__refresh-btn">Refresh</button>
+          </div>
+        </div>
+        <div class="global-container__notes-wrapper">
+          <h2 class="global-container__notes-wrapper-headline">
+            All found notes
+          </h2>
+          <div class="notes-container">
+            <h3 class="notes-container__no-notes-text">
+              No notes were found matching the given parameters...
+            </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hidden-element edit-form-wrapper">
+      <form action="#" class="edit-form" name="edit-form">
+        <button class="edit-form__close-btn"></button>
+        <h2 class="edit-form__headline">Edit information about note</h2>
+        <h3 class="hidden-element edit-form__error-msg">
+          Here will be some error message...
+        </h3>
+        <h3 class="edit-form__note-title-headline">Change title:</h3>
+        <input type="text" class="input-title" name="input-title" id="edit-title">
+        <h3 class="edit-form__note-description-headline">
+          Change description:
+        </h3>
+        <textarea type="text" class="text-area-description_last text-area-description" name="text-area-description" placeholder="Enter description (optional)" id="edit-description" rows="3"></textarea>
+        <h3 class="edit-form__note-state-headline">Change state:</h3>
+        <select class="select-note-state_last select-note-state" name="select-note-state" id="edit-state">
+          <option value="In progress" selected="selected">In progress</option>
+          <option value="Postponed">Postponed</option>
+          <option value="Completed">Completed</option>
+        </select>
+        <h3 class="edit-form__note-deadline-headline">Change deadline:</h3>
+        <input type="date" class="input-deadline_last input-deadline" name="input-deadline" id="edit-deadline">
+        <button class="edit-form__confirm-btn">Confirm</button>
+      </form>
+    </div>
+    <script src="/index.3d214d75.js" defer=""></script>
+  </body>
+</html>
