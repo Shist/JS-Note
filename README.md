@@ -1,6 +1,9 @@
 # JS-Note
 ### This is web-page where you can create, read, update, delete and search some items in the list.
 ---
+### This project is hosted using the Vecel.com platform, you can see how it works here:
+## https://shist-js-note.vercel.app/
+---
 ## Video demo:
 
 
