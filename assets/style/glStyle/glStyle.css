@@ -17,7 +17,7 @@ body {
 .global-container {
   width: 100%;
   margin: 0 auto;
-  min-height: 100vh;
+  min-height: 100dvh;
   padding: 15px 30px;
   display: flex;
   flex-direction: column;
@@ -215,8 +215,7 @@ body {
 .note-card__buttons-wrapper {
   display: flex;
   justify-content: space-around;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  column-gap: 10px;
 }
 .note-card__buttons-wrapper .note-card__edit-btn {
   max-width: 130px;
@@ -301,7 +300,7 @@ body {
 .edit-form-wrapper {
   position: fixed;
   min-width: 100vw;
-  min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   justify-content: center;
   align-items: center;
